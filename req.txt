@@ -1,0 +1,10 @@
+argon2
+body-parser
+cors
+expressjs
+helmet
+morgan
+multer
+mysql
+pug
+nodemailer
