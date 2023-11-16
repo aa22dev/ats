@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const middlewares = require('./middlewares');
 const routes = require('./routes');
-
 const app = express();
+
 
 // Setup view engine to PugJS
 app.set('views', path.join(__dirname, 'views'));
