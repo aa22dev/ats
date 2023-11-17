@@ -1,4 +1,4 @@
-const db = require('../config/database');
+const db = require('../../config/database');
 
 async function update(table, data, conditions, values) {
     try {

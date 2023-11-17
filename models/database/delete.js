@@ -1,4 +1,4 @@
-const db = require('../config/database');
+const db = require('../../config/database');
 
 async function del(table, conditions, values) {
     try {
