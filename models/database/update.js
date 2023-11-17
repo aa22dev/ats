@@ -7,7 +7,7 @@ const db = require('../../config/database');
  * @param {object} data - The data to update the row with.
  * @param {string} conditions - The conditions for updating the row.
  * @param {Array} values - The values to substitute in the conditions.
- * @return {number} The number of affected rows after the update.
+ * @return {Promise<number>} The number of affected rows after the update.
  */
 async function update(table, data, conditions, values) {
     try {

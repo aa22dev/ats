@@ -5,7 +5,7 @@ const db = require('../../config/database');
  *
  * @param {string} table - The name of the table to insert into.
  * @param {object} data - The data to be inserted.
- * @return {number} The ID of the inserted data.
+ * @return {Promise<number>} The ID of the inserted data.
  */
 async function insert(table, data) {
     try {

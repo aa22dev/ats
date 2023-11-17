@@ -9,7 +9,7 @@ module.exports = {
     /**
      * Retrieves all the rows from the table.
      *
-     * @return {Array} An array of rows from the table.
+     * @return {Promise<Array>} An array of rows from the table.
      */
     getAll: async () => {
         try {
@@ -23,7 +23,7 @@ module.exports = {
      * Retrieves a row from the database table by the given id.
      *
      * @param {number} id - The id of the row to retrieve.
-     * @return {Object} The retrieved row.
+     * @return {Promise<Object>} The retrieved row.
      */
     getById: async (id) => {
         try {
@@ -37,7 +37,7 @@ module.exports = {
      * Creates a new entry in the table with the provided data.
      *
      * @param {Object} data - The data to be inserted into the table.
-     * @return {number} The ID of the newly inserted row.
+     * @return {Promise<number>} The ID of the newly inserted row.
      */
     create: async (data) => {
         try {
@@ -52,7 +52,7 @@ module.exports = {
      *
      * @param {number} id - The ID of the record to update.
      * @param {object} data - The updated data to be applied to the record.
-     * @return {number} The number of affected rows in the database.
+     * @return {Promise<number>} The number of affected rows in the database.
      */
     updateById: async (id, data) => {
         try {
