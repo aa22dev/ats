@@ -5,6 +5,13 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const express = require('express');
 
+/**
+ * Middleware function for enhancing security, enabling CORS, setting up logger middleware,
+ * parsing JSON and URL-encoded data, and serving static files.
+ *
+ * @param {Object} app - The Express app object.
+ * @return {void}
+ */
 function middleware(app) {
     // Middleware for enhanced security
     app.use(helmet());

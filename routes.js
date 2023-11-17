@@ -1,6 +1,12 @@
 const path = require('path');
 const fs = require('fs');
 
+/**
+ * Sets up and uses API and regular routes, handles 404 and server errors.
+ *
+ * @param {object} app - The Express app object.
+ * @return {undefined} This function does not return a value.
+ */
 function routes(app) {
     // Setup & Use API Routes
     fs.readdirSync(__dirname + '/api').forEach((file) => {

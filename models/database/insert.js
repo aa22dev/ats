@@ -1,5 +1,12 @@
 const db = require('../../config/database');
 
+/**
+ * Inserts data into the specified table.
+ *
+ * @param {string} table - The name of the table to insert into.
+ * @param {object} data - The data to be inserted.
+ * @return {number} The ID of the inserted data.
+ */
 async function insert(table, data) {
     try {
         const query = `INSERT INTO ${table} SET ?`;
