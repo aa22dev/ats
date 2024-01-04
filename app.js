@@ -17,6 +17,8 @@ routes(app)
 
 // Start the server
 const PORT = 3000;
+
+// Define and run server function
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -7,7 +7,7 @@
     "app": "node app.js",
     "dev": "nodemon app.js"
   },
-  "author": "Aqib Hussain, Hafiz Jawad Mansoor",
+  "author": ["Aqib Hussain", "Hafiz Jawad Mansoor"],
   "license": "ISC",
   "dependencies": {
     "argon2": "^0.31.2",

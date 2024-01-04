@@ -19,20 +19,39 @@ module.exports = {
             throw err;
         }
     },
+
     /**
-     * Retrieves a row from the database table by the given id.
+     * Retrieves a single row from the table based on the provided criteria.
      *
-     * @param {number} id - The id of the row to retrieve.
-     * @return {Promise<Object>} The retrieved row.
+     * @param {string} by - The column name to search by.
+     * @param {any} value - The value to search for.
+     * @return {Promise<object>} The retrieved row from the table.
      */
-    getById: async (id) => {
+    get: async (by, value) => {
         try {
-            const rows = await select(table, '*', 'WHERE id = ?', [id]);
+            const rows = await select(table, '*', `WHERE ${by} = ?`, [value]);
             return rows[0];
         } catch (err) {
             throw err;
         }
     },
+
+    /**
+     * Count the number of rows in the table based on a specific condition.
+     *
+     * @param {string} by - The column name to filter by.
+     * @param {string} value - The value to filter by.
+     * @return {number} The total number of rows that match the condition.
+     */
+    count: async (by, value) => {
+        try {
+            const total = await select(table, 'COUNT(*) as total', `WHERE ${by} = ?`, [value]);
+            return total[0]['total'];
+        } catch (err) {
+            throw err;
+        }
+    },
+
     /**
      * Creates a new entry in the table with the provided data.
      *
@@ -41,12 +60,13 @@ module.exports = {
      */
     create: async (data) => {
         try {
-            const row = await insert(table, data);
-            return row.insertId;
+            const insertId = await insert(table, data);
+            return insertId;
         } catch (err) {
             throw err;
         }
     },
+
     /**
      * Updates a record in the database table by its ID.
      *
@@ -56,12 +76,13 @@ module.exports = {
      */
     updateById: async (id, data) => {
         try {
-            const row = await update(table, data, 'WHERE id = ?', [id]);
-            return row.affectedRows;
+            const rowsAffected = await update(table, data, 'WHERE id = ?', [id]);
+            return rowsAffected;
         } catch (err) {
             throw err;
         }
     },
+
     /**
      * Deletes a record from the database by its ID.
      *
@@ -70,8 +91,8 @@ module.exports = {
      */
     deleteById: async (id) => {
         try {
-            const row = await remove(table, 'WHERE id = ?', [id]);
-            return row.affectedRows;
+            const rowsAffected = await remove(table, 'WHERE id = ?', [id]);
+            return rowsAffected;
         } catch (err) {
             throw err;
         }

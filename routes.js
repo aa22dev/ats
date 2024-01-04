@@ -12,7 +12,7 @@ function routes(app) {
     fs.readdirSync(__dirname + '/api').forEach((file) => {
         if (file.endsWith('.js')) {
             const route = require(`./api/${file}`);
-            app.use(`/api/${route.path}`, route);
+            app.use(route.path, route.router);
         }
     });
 
