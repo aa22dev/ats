@@ -1,6 +1,6 @@
 const model = require('../models/users');
 const argon2 = require('argon2');
-const err = require('../utils/error');
+const { throwErr } = require('../utils/error');
 const checker = require('../utils/dataValidityChecker');
 
 /**
@@ -13,7 +13,7 @@ const checker = require('../utils/dataValidityChecker');
 function checkData(data, action) {
     if (action === 'id') {
         if (isNaN(data) || !Number.isInteger(data)) {
-            err.throwErr('User ID not defined', 400);
+            throwErr('User ID not defined', 400);
         }
     }
 
@@ -31,7 +31,7 @@ module.exports = {
             const users = await model.getAll();
 
             if (users.length === 0) {
-                err.throwErr("No data found", 404);
+                throwErr("No data found", 404);
             }
 
             return users;
@@ -52,7 +52,7 @@ module.exports = {
             checkData(id, 'id')
             const user = await model.get('id', id);
             if (!user) {
-                err.throwErr("User not found", 404);
+                throwErr("User not found", 404);
             }
             return user;
         } catch (err) {
@@ -71,7 +71,7 @@ module.exports = {
         try {
             const user = await model.get('username', username);
             if (!user) {
-                err.throwErr("User not found", 404);
+                throwErr("User not found", 404);
             }
             return user;
         } catch (err) {
@@ -90,7 +90,7 @@ module.exports = {
         try {
             const user = await model.get('email', email);
             if (!user) {
-                err.throwErr("User not found", 404);
+                throwErr("User not found", 404);
             }
             return user;
         } catch (err) {

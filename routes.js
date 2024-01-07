@@ -1,5 +1,8 @@
 const path = require('path');
 const fs = require('fs');
+const cors = require('cors');
+const apiChecker = require('./middleware/apiChecker')
+const { apiErrorHandler, api404ErrorHandler } = require('./middleware/errorHandler')
 
 /**
  * Sets up and uses API and regular routes, handles 404 and server errors.
@@ -12,15 +15,21 @@ function routes(app) {
     fs.readdirSync(__dirname + '/api').forEach((file) => {
         if (file.endsWith('.js')) {
             const route = require(`./api/${file}`);
-            app.use(route.path, route.router);
+            app.use(route.path, cors(apiChecker.check), route.router);
         }
     });
+
+    // Setup API 404 Error Handling
+    app.use('/api', api404ErrorHandler);
+
+    // Setup API Server Error Handling
+    app.use('/api', apiErrorHandler);
 
     // Setup & Use Routes
     fs.readdirSync(__dirname + '/routes').forEach((file) => {
         if (file.endsWith('.js')) {
             const route = require(`./routes/${file}`);
-            app.use(route.path, route);
+            app.use(route.path, cors(), route);
         }
     });
 
@@ -30,10 +39,9 @@ function routes(app) {
         // res.render('404');
     });
 
-    // Setup Server Error Handling
     app.use((err, req, res, next) => {
-        console.error(err.stack);
-        res.status(500).send('Something went wrong!');
+        res.status(500).send('Something Went Wrong!');
+        // res.render('404');
     });
 }
 
