@@ -26,7 +26,7 @@ module.exports = {
      * @return {Promise<Array>} An array containing all the users.
      * @throws {Error} If no data is found.
      */
-    getAll: async function() {
+    getAll: async function () {
         try {
             const users = await model.getAll();
 
@@ -39,7 +39,7 @@ module.exports = {
             throw err;
         }
     },
-    
+
     /**
      * Retrieves a user by their ID.
      *
@@ -47,7 +47,7 @@ module.exports = {
      * @return {Promise<Object>} The user object if found.
      * @throws {Error} If the user is not found.
      */
-    getById: async function(id) {
+    getById: async function (id) {
         try {
             checkData(id, 'id')
             const user = await model.get('id', id);
@@ -67,7 +67,7 @@ module.exports = {
      * @return {Object<Promise>} The user object if found.
      * @throws {Error} If the user is not found.
      */
-    getByUsername: async function(username) {
+    getByUsername: async function (username) {
         try {
             const user = await model.get('username', username);
             if (!user) {
@@ -86,7 +86,7 @@ module.exports = {
      * @return {Object<Promise>} The user object if found.
      * @throws {Error} If the user is not found.
      */
-    getByEmail: async function(email) {
+    getByEmail: async function (email) {
         try {
             const user = await model.get('email', email);
             if (!user) {
@@ -104,7 +104,7 @@ module.exports = {
      * @param {string} username - The username of the user.
      * @return {number} The total count of users with the given username.
      */
-    totalByUsername: async function(username) {
+    totalByUsername: async function (username) {
         try {
             const user = await model.count('username', username);
             return user;
@@ -119,7 +119,7 @@ module.exports = {
      * @param {string} email - The email to search for.
      * @return {Promise<number>} The total count of users with the given email.
      */
-    totalByEmail: async function(email) {
+    totalByEmail: async function (email) {
         try {
             const user = await model.count('email', email);
             return user;
@@ -134,7 +134,7 @@ module.exports = {
      * @param {Object} data - The user data.
      * @return {Promise<number>} The ID of the created user.
      */
-    createUser: async function(data) {
+    createUser: async function (data) {
         try {
             await checker.all(data, this.totalByUsername, this.totalByEmail);
             data.password = await argon2.hash(data.password);
@@ -152,7 +152,7 @@ module.exports = {
      * @param {Object} data - The data to update the record with.
      * @return {Promise<number>} The number of rows affected by the update.
      */
-    updateById: async function(id, data) {
+    updateById: async function (id, data) {
         try {
             checkData(id, 'id');
             if (data.password) {
@@ -174,7 +174,7 @@ module.exports = {
      * @param {number} id - The ID of the record to be deleted.
      * @return {Promise<number>} The number of affected rows.
      */
-    deleteById: async function(id) {
+    deleteById: async function (id) {
         try {
             checkData(id, 'id')
             const rowsAffected = await model.deleteById(id);

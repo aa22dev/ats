@@ -24,7 +24,7 @@ module.exports = {
         * @param {function} totalByUsername - A function to calculate the total by username.
         */
         async all(username, totalByUsername) {
-            this.check(username); 
+            this.check(username);
             this.length(username);
             await this.isExist(username, totalByUsername);
         },
@@ -40,9 +40,9 @@ module.exports = {
             try {
                 const users = await totalByUsername(username)
                 if (users > 0) err.throwErr('Username already exists', 409)
-            } catch(e) {
+            } catch (e) {
                 throw e;
-            }             
+            }
         },
 
         /**
@@ -50,7 +50,7 @@ module.exports = {
         *
         * @param {string} username - the username to be checked
         */
-        check(username){
+        check(username) {
             if (!username) err.throwErr('Username is required', 400);
         },
 
@@ -140,7 +140,7 @@ module.exports = {
             try {
                 const users = await getByEmail(email);
                 if (users > 0) err.throwErr('Email already exists', 409);
-            } catch(e) {
+            } catch (e) {
                 throw e;
             }
         }

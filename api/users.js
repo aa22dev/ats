@@ -7,7 +7,7 @@ router.get('/', async (req, res, next) => {
     try {
         const users = await userController.getAll();
         res.status(200).json(users);
-    } catch(err) {
+    } catch (err) {
         next(err);
     }
 });

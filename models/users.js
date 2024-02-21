@@ -15,7 +15,7 @@ module.exports = {
         try {
             const rows = await select(table);
             return rows;
-        } catch(err) {
+        } catch (err) {
             throw err;
         }
     },

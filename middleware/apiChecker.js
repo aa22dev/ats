@@ -14,9 +14,9 @@ module.exports = {
     async check(req, callback) {
         try {
             const corsOptions = {};
-        
+
             const allowedOrigins = await getOrigin(req.headers['x-api-key']);
-        
+
             if (allowedOrigins.includes(req.headers.origin)) {
                 corsOptions.origin = true;
             } else {
@@ -24,7 +24,6 @@ module.exports = {
             }
             callback(null, corsOptions);
         } catch (err) {
-            console.error(err);
             callback(err);
         }
     }
