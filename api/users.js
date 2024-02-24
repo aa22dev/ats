@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/users');
+const userController = require('../controllers/api/users');
 
 // Define a route handler for handling GET requests to retrieve all users
-router.get('/', async (req, res, next) => {
+router.get('/:role', async (req, res, next) => {
     try {
-        const users = await userController.getAll();
+        const users = await userController.getAll(req.params.role);
         res.status(200).json(users);
     } catch (err) {
         next(err);
@@ -13,10 +13,9 @@ router.get('/', async (req, res, next) => {
 });
 
 // Define a route handler for handling GET requests to retrieve a user by specific id
-router.get('/:id', async (req, res, next) => {
-    const id = parseInt(req.params.id);
+router.get('/:role/:id', async (req, res, next) => {
     try {
-        const user = await userController.getById(id);
+        const user = await userController.getById(req.params.id, req.params.role);
         res.status(200).json(user);
     } catch (err) {
         next(err)
@@ -35,10 +34,8 @@ router.post('/', async (req, res, next) => {
 
 // Define a route handler for handling PUT requests to update a user by id
 router.put('/:id', async (req, res, next) => {
-    const userId = parseInt(req.params.id);
-    const userData = req.body;
     try {
-        const rowsAffected = await userController.updateById(userId, userData);
+        const rowsAffected = await userController.updateById(req.params.id, req.body);
         res.json({ rowsAffected });
     } catch (err) {
         next(err)
@@ -47,9 +44,8 @@ router.put('/:id', async (req, res, next) => {
 
 // Define a route handler for handling DELETE requests to delete a user by id
 router.delete('/:id', async (req, res, next) => {
-    const userId = parseInt(req.params.id);
     try {
-        const rowsAffected = await userController.deleteById(userId);
+        const rowsAffected = await userController.deleteById(req.params.id);
         res.json({ rowsAffected });
     } catch (err) {
         next(err)

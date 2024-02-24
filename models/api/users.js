@@ -1,7 +1,7 @@
-const select = require('./database/select');
-const insert = require('./database/insert');
-const update = require('./database/update');
-const remove = require('./database/delete');
+const select = require('../database/select');
+const insert = require('../database/insert');
+const update = require('../database/update');
+const remove = require('../database/delete');
 
 const table = 'users';
 const fields = 'id, username, email, role';
@@ -10,43 +10,13 @@ module.exports = {
     /**
      * Retrieves all the rows from the table.
      *
+     * @param {string} role - role to filter by
      * @return {Promise<Array>} An array of rows from the table.
      */
-    getAll: async () => {
-        try {
-            const rows = await select(table, fields);
-            return rows;
-        } catch (err) {
-            throw err;
-        }
-    },
-
-    /**
-     * Retrieves all rows by role from the table.
-     *
-     * @param {string} role - role to filter by
-     * @return {Array} array of rows
-     */
-    getAllByRole: async (role) => {
+    getAll: async (role) => {
         try {
             const rows = await select(table, fields, 'WHERE role = ?', [role]);
             return rows;
-        } catch (err) {
-            throw err;
-        }
-    },
-
-    /**
-     * Retrieves a single row from the table based on the provided criteria.
-     *
-     * @param {string} by - The column name to search by.
-     * @param {any} value - The value to search for.
-     * @return {Promise<object>} The retrieved row from the table.
-     */
-    get: async (by, value) => {
-        try {
-            const rows = await select(table, fields, `WHERE ${by} = ?`, [value]);
-            return rows[0];
         } catch (err) {
             throw err;
         }
@@ -60,7 +30,7 @@ module.exports = {
      * @param {string} role - the role to search for
      * @return {object} the first row found
      */
-    getByRole: async (by, value, role) => {
+    get: async (by, value, role) => {
         try {
             const rows = await select(table, fields, `WHERE ${by} = ? and role = ?`, [value, role]);
             return rows[0];

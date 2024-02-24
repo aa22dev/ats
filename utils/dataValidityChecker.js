@@ -7,13 +7,30 @@ module.exports = {
     * @param {object} data - An object containing the required data for the operations.
     * @param {function} totalByUsername - A function to calculate the total by username.
     * @param {function} totalByEmail - A function to calculate the total by email.
-    * @return {Promise} - A promise that resolves when all operations are completed.
     */
-    async all(data, totalByUsername, totalByEmail) {
-        await this.username.all(data.username, totalByUsername);
-        this.password.all(data.password);
-        await this.email.all(data.email, totalByEmail);
-        this.role.check(data.role);
+    async all(data, totalByUsername, totalByEmail, request="normal", method="create") {
+        if (method === "create") {
+            (request == "normal") ? this.role.validate(data.role) : this.role.apiValidate(data.role);
+            await this.username.all(data.username, totalByUsername);
+            await this.email.all(data.email, totalByEmail);
+            this.password.all(data.password);
+        } else {
+            if (data.role) (request == "normal") ? this.role.validate(data.role) : this.role.apiValidate(data.role);
+            if (data.username) await this.username.all(data.username, totalByUsername);
+            if (data.email) await this.email.all(data.email, totalByEmail);
+            if (data.password) this.password.all(data.password);
+        }
+    },
+
+    id: {
+        /**
+         * Validates the user ID.
+         *
+         * @param {string} id - The user ID to be validated
+         */
+        validate(id) {
+            if (!/^\d+$/.test(id)) err.throwErr('User ID not defined', 400);
+        }
     },
 
     username: {
@@ -152,9 +169,18 @@ module.exports = {
         * @param {string} role - The role to be checked.
         * @throws {Err} Throws an error if the role is invalid or not provided.
         */
-        check(role) {
+        validate(role) {
             if (!role) err.throwErr('Role is required', 400);
             if (!['admin', 'company', 'employer', 'applicant'].includes(role)) err.throwErr('Invalid Role', 400);
         },
+
+        /**
+         * Validates the role for API access.
+         *
+         * @param {string} role - the role to be validated
+         */
+        apiValidate(role) {
+            if (!['employer', 'applicant'].includes(role)) err.throwErr("API Endpoint Not Found", 404);
+        }
     }
 }

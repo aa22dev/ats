@@ -1,7 +1,7 @@
-const model = require('../models/users');
+const model = require('../../models/api/users');
 const argon2 = require('argon2');
-const { throwErr } = require('../utils/error');
-const checker = require('../utils/dataValidityChecker');
+const { throwErr } = require('../../utils/error');
+const checker = require('../../utils/dataValidityChecker');
 
 /**
  * Checks the data based on the given action.
@@ -21,35 +21,15 @@ const checker = require('../utils/dataValidityChecker');
 
 module.exports = {
     /**
-     * Retrieves all the users from the model.
-     *
-     * @return {Promise<Array>} An array containing all the users.
-     * @throws {Error} If no data is found.
-     */
-    getAll: async function () {
-        try {
-            const users = await model.getAll();
-
-            if (users.length === 0) {
-                throwErr("No data found", 404);
-            }
-
-            return users;
-        } catch (err) {
-            throw err;
-        }
-    },
-
-    /**
      * Asynchronously retrieves all users of a specific role.
      *
      * @param {string} role - The role of the users to retrieve
      * @return {Array} The array of users with the specified role
      */
-    getAllByRole: async function (role) {
+    getAll: async function (role) {
         try {
             checker.role.apiValidate(role);
-            const users = await model.getAllByRole(role);
+            const users = await model.getAll(role);
 
             if (users.length === 0) {
                 throwErr("No data found", 404);
@@ -62,30 +42,17 @@ module.exports = {
     },
 
     /**
-     * Retrieves a user by their ID.
+     * Asynchronously retrieves a user by their ID and role.
      *
-     * @param {number} id - The ID of the user to retrieve.
-     * @return {Promise<Object>} The user object if found.
-     * @throws {Error} If the user is not found.
+     * @param {type} id - The ID of the user
+     * @param {type} role - The role of the user
+     * @return {type} The user object
      */
-    getById: async function (id) {
-        try {
-            checker.id.validate(id)
-            const user = await model.get('id', id);
-            if (!user) {
-                throwErr("User not found", 404);
-            }
-            return user;
-        } catch (err) {
-            throw err;
-        }
-    },
-
-    getByIdRole: async function (id, role) {
+    getById: async function (id, role) {
         try {
             checker.id.validate(id)
             checker.role.apiValidate(role)
-            const user = await model.getByRole('id', id, role);
+            const user = await model.get('id', id, role);
             if (!user) {
                 throwErr("User not found", 404);
             }
@@ -171,7 +138,7 @@ module.exports = {
      */
     createUser: async function (data) {
         try {
-            await checker.all(data, this.totalByUsername, this.totalByEmail);
+            await checker.all(data, this.totalByUsername, this.totalByEmail, "api");
             data.password = await argon2.hash(data.password);
             const id = await model.create(data);
             return id;
@@ -190,9 +157,10 @@ module.exports = {
     updateById: async function (id, data) {
         try {
             checker.id.validate(id);
-            if (data.password) {
-                data.password = await argon2.hash(data.password);
-            }
+            await checker.all(data, this.totalByUsername, this.totalByEmail, "api", "update");
+            
+            data.password = await argon2.hash(data.password);
+
             const rowsAffected = await model.updateById(id, data);
             if (rowsAffected === 0) {
                 throw new Error("User not found");
