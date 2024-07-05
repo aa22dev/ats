@@ -1,0 +1,73 @@
+header.topbar(data-navbarbg="skin6")
+    nav.navbar.top-navbar.navbar-expand-lg
+        div.navbar-header(data-logobg="skin6")
+            a.nav-toggler.waves-effect.waves-light.d-block.d-lg-none(href="javascript:void(0)")
+                i.ti-menu.ti-close
+            div.navbar-brand
+                a(href="index.html")
+                    img.img-fluid(src="/assets/images/logo.svg", alt="")
+            a.topbartoggler.d-block.d-lg-none.waves-effect.waves-light(href="javascript:void(0)", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+                i.ti-more
+        div.navbar-collapse.collapse#navbarSupportedContent
+            ul.navbar-nav.float-left.me-auto.ms-3.ps-1
+            //    li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle.pl-md-3.position-relative(href="javascript:void(0)", id="bell", role="button", data-bs-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                        span
+                            i.svg-icon(data-feather="bell")
+                        span.badge.text-bg-primary.notify-no.rounded-circle 5
+                    div.dropdown-menu.dropdown-menu-left.mailbox.animated.bounceInDown
+                        ul.list-style-none
+                            li
+                                div.message-center.notifications.position-relative
+                                    // Message
+                                    a.message-item.d-flex.align-items-center.border-bottom.px-3.py-2(href="javascript:void(0)")
+                                        div.btn.btn-danger.rounded-circle.btn-circle
+                                            i(data-feather="airplay" class="text-white")
+                                        div.w-75.d-inline-block.v-middle.ps-2
+                                            h6.message-title.mb-0.mt-1 Luanch Admin
+                                            span.font-12.text-nowrap.d-block.text-muted Just see the my new admin!
+                                            span.font-12.text-nowrap.d-block.text-muted 9:30 AM
+                                    // Message
+                                    a.message-item.d-flex.align-items-center.border-bottom.px-3.py-2(href="javascript:void(0)")
+                                        span.btn.btn-success.text-white.rounded-circle.btn-circle
+                                            i(data-feather="calendar" class="text-white")
+                                        div.w-75.d-inline-block.v-middle.ps-2
+                                            h6.message-title.mb-0.mt-1 Event today
+                                            span.font-12.text-nowrap.d-block.text-muted.text-truncate Just a reminder that you have event
+                                            span.font-12.text-nowrap.d-block.text-muted 9:10 AM
+                                    // Message
+                                    a.message-item.d-flex.align-items-center.border-bottom.px-3.py-2(href="javascript:void(0)")
+                                        span.btn.btn-info.rounded-circle.btn-circle
+                                            i(data-feather="settings" class="text-white")
+                                        div.w-75.d-inline-block.v-middle.ps-2
+                                            h6.message-title.mb-0.mt-1 Settings
+                                            span.font-12.text-nowrap.d-block.text-muted.text-truncate You can customize this template as you want
+                                            span.font-12.text-nowrap.d-block.text-muted 9:08 AM
+                                    // Message
+                                    a.message-item.d-flex.align-items-center.border-bottom.px-3.py-2(href="javascript:void(0)")
+                                        span.btn.btn-primary.rounded-circle.btn-circle
+                                            i(data-feather="box" class="text-white")
+                                        div.w-75.d-inline-block.v-middle.ps-2
+                                            h6.message-title.mb-0.mt-1 Pavan kumar
+                                            span.font-12.text-nowrap.d-block.text-muted Just see the my admin!
+                                            span.font-12.text-nowrap.d-block.text-muted 9:02 AM
+                            li
+                                a.nav-link.pt-3.text-center.text-dark(href="javascript:void(0);")
+                                    strong Check all notifications
+                                    i.fa.fa-angle-right
+            ul.navbar-nav.float-end
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle(href="javascript:void(0)", data-bs-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                        img.rounded-circle(src= user.profile_picture, alt= user.username, width="40")
+                        span.ms-2.d-none.d-lg-inline-block
+                            span Hello,
+                            span.text-dark  #{user.username}
+                            i.svg-icon(data-feather="chevron-down")
+                    div.dropdown-menu.dropdown-menu-end.dropdown-menu-right.user-dd.animated.flipInY
+                        //a.dropdown-item(href="javascript:void(0)")
+                        //    i.svg-icon.me-2.ms-1(data-feather="settings")
+                        //    | Account Setting
+                        //div.dropdown-divider
+                        a.dropdown-item(href="/user/logout")
+                            i.svg-icon.me-2.ms-1(data-feather="power")
+                            | Logout

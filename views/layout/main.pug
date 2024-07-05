@@ -1,0 +1,14 @@
+doctype html
+html(dir="ltr" lang="en")
+    head
+        include head.pug
+        block head
+    body
+        include preloader
+        div#main-wrapper(data-theme="light", data-layout="vertical", data-navbarbg="skin6", data-sidebartype="full", data-sidebar-position="fixed", data-header-position="fixed", data-boxed-layout="full")
+            include header
+            include sidebar
+            div.page-wrapper
+                block content
+                include footer.pug
+        include scripts.pug

@@ -1,0 +1,47 @@
+extends layout/main
+block preloadStyles
+    link(href="/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css", rel="stylesheet")
+    link(href="/assets/extra-libs/datatables.net-bs4/css/responsive.dataTables.min.css", rel="stylesheet")
+    link(href="/dist/css/table.css", rel="stylesheet")
+
+block content
+    .page-breadcrumb
+        .row
+            .col-7.align-self-center
+                h3.page-title.text-truncate.text-dark.font-weight-medium.mb-1 Recommended Jobs
+                .d-flex.align-items-center
+                    nav(aria-label='breadcrumb')
+                        ol.breadcrumb.m-0.p-0
+                            li.breadcrumb-item
+                                a.text-muted(href='/applicant/dashboard') Home
+                            li.breadcrumb-item.text-muted.active(aria-current='page') Recommended Jobs
+    .container-fluid
+        .row
+            .col-12
+                .card
+                    .card-body
+                        h4.card-title Recommended Jobs
+                        if error
+                            .alert.alert-danger.alert-dismissible.bg-danger.text-white.border-0.fade.show(role='alert')
+                                button.close(type='button', data-dismiss='alert', aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                                strong= error
+                        .table-responsive
+                            table#recommendedjobs.table.border.table-striped.table-bordered.text-nowrap
+                                thead
+                                    tr
+                                        th ID
+                                        th Title
+                                        th Description
+                                        th Requirements
+                                        th Experience
+                                        th Education
+                                        th Salary
+                                        th Deadline
+                                        th Profile Matches
+                                tbody
+
+block scripts
+    script(src='/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')
+    script(src='/assets/extra-libs/datatables.net-bs4/js/dataTables.responsive.min.js')
+    script(src='/dist/js/pages/datatable/datatable-recommended-jobs.js')

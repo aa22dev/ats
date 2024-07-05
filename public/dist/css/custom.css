@@ -1,0 +1,38 @@
+@media screen and (max-width: 768px) {
+    button[type=submit] {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    button[type=submit] {
+        padding: 8px 25px;
+    }
+}
+
+button[type=submit] {
+    background-image: linear-gradient(45deg, rgb(41, 98, 255) 0%, rgb(41, 121, 255) 100%);
+    color: white;
+    transition: all .5s ease-in-out;
+    background-size: 100% 100%;
+    background-position: 0 0;
+}
+
+button[type=submit]:hover, button[type=submit]:active, button[type=submit]:focus-visible {
+    color: white;
+    background-size: 800% 800%;
+    background-position: 100% 100%;
+}
+
+.form-control:focus, .form-control:focus-visible {
+    box-shadow: 0 2px 9px 0 rgba(169, 184, 200, 0.4)!important;
+    -webkit-box-shadow: 0 2px 9px 0 rgba(169, 184, 200, 0.4)!important;
+    -moz-box-shadow: 0 2px 9px 0 rgba(169, 184, 200, 0.4)!important;
+}
+
+.error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: var(--bs-danger-text);
+}

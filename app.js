@@ -1,29 +1,33 @@
-// store the base directory in the global variable
-global.__basedir = __dirname;
-
 // Load required packages and files
-const express = require('express');
-const path = require('path');
-const middlewares = require('./middlewares');
-const routes = require('./routes');
-
-// store reference to app globally
-global.app = express();
+require('./config/globals.js');
+const config = require('./config/server.js');
+const middlewares = require('./services/middleware.js');
+const errorHandler = require('./middleware/errorHandler.js');
+const router = require('./services/router.js');
+const { static: statics } = require('express')
+const { verifyApiKey } = require('./middleware/auth.js');
 
 // Setup view engine to PugJS
-app.set('views', path.join(__basedir, 'views'));
-app.set('view engine', 'pug');
+app.set('views', config.views);
+app.set('view engine', config.viewEngine);
 
-// Initializing Middlewares
-middlewares.init();
+// Serve static files from the "public" directory
+app.use(statics(config.statics));
+
+// Initializing Basic Middlewares
+middlewares();
+
+// Setting up API Key validation
+app.use('/api', verifyApiKey);
 
 // Initializing Routes
-routes.init()
+router();
 
-// Start the server
-const PORT = 3000;
+// Setting up API Error Handlers
+app.use('/api', errorHandler.apiErrorHandler);
+app.use('/api', errorHandler.api404ErrorHandler);
 
 // Define and run server function
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(config.port, () => {
+  console.log(`Server is running on port ${config.port}`);
 });

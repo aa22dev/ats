@@ -1,0 +1,21 @@
+h4.card-title.aa-item-title::after {
+    content: attr(data-aa-status);
+    float: right;
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+h4.card-title.aa-item-title[data-aa-status="Fail"]::after {
+    background: #e53935;
+}
+
+h4.card-title.aa-item-title[data-aa-status="Pass"]::after {
+    background: #59b85d;
+}
+
+h4.card-title.aa-item-title[data-aa-status="Warning"]::after {
+    background: #ea5a19;
+}

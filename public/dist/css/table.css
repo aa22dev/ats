@@ -1,0 +1,20 @@
+.btn-circle-lg.action-btn {
+    width: 30px;
+    height: 30px;
+    line-height: 0;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aa-group-action {
+    display: flex;
+    gap: 5px;
+}
+
+.aa-qr-code img {
+    height: 30px;
+}

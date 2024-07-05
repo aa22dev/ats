@@ -1,0 +1,41 @@
+doctype html
+html(dir="ltr", lang="en")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel="icon", type="image/png", sizes="16x16", href="/assets/images/favicon.png")
+        title Applicant Login - #{appName}
+        link(href="/dist/css/style.min.css", rel="stylesheet")
+        link(href="/dist/css/login.min.css", rel="stylesheet")
+    body
+        .preloader
+            .lds-ripple
+                .lds-pos
+                .lds-pos
+        #main-wrapper(data-navbarbg="skin2")
+            div
+                div.login
+                    div.row
+                        div.col-12
+                            div.card
+                                div.card-body
+                                    h3.card-title.text-center.title-2 Applicant Login
+                                    if error
+                                        span.error= error
+                                    form(method="post", class="mt-4")
+                                        .form-group
+                                            label(for="email", style="display: none;") Email Address
+                                            input#username.form-control.custom-shadow.border-0(type="text", name="email", placeholder="Email Address", required)
+                                        .form-group.mt-4
+                                            label(for="password", style="display: none;") Password
+                                            input#password.form-control.custom-shadow.border-0(type="password", name="password", placeholder="Password", required)
+                                        button.btn.btn-rounded.custom-shadow.mt-4(type="submit") Login
+        footer.footer.text-center.text-muted
+            span Copyright © 2023 ATS. All Rights Reserved.
+        script(src="/assets/libs/jquery/dist/jquery.min.js")
+        script(src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js")
+        script(src="/dist/js/feather.min.js")
+        script(src="/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js")
+        script(src="/assets/extra-libs/sparkline/sparkline.js")
+        script(src="/dist/js/custom.min.js")

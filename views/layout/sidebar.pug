@@ -1,0 +1,34 @@
+aside.left-sidebar(data-sidebarbg='skin6')
+    .scroll-sidebar(data-sidebarbg='skin6')
+        nav.sidebar-nav
+            ul#sidebarnav
+                li.sidebar-item(class={'selected': title === 'Dashboard'})
+                    a.sidebar-link.sidebar-link(href='/dashboard', aria-expanded='false')
+                        svg.feather.feather-message-square.feather-icon(xmlns='http://www.w3.org/2000/svg', height='24', width='24', viewBox='0 0 479.46 473.71', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+                            path(fill='none', stroke-linecap='round', stroke-miterlimit='8', stroke-width='17.6', d='M272.15 464.9h187.3c6.16 0 11.2-4.41 11.2-9.79V209.59c0-5.39-5.04-9.8-11.2-9.8h-187.3c-6.16 0-11.2 4.41-11.2 9.8v204.67')
+                            rect(width='209.7', height='152.98', x='8.8', y='311.93', fill='none', stroke-miterlimit='8', stroke-width='17.6', rx='9.6', ry='9.6')
+                            path(fill='none', stroke-linecap='round', stroke-miterlimit='8', stroke-width='17.6', d='M207.3 273.92H20c-6.16 0-11.2-4.41-11.2-9.8V18.6c0-5.38 5.04-9.79 11.2-9.79h187.3c6.16 0 11.2 4.41 11.2 9.79v204.66')
+                            rect(width='209.7', height='152.98', x='260.95', y='8.8', fill='none', stroke-miterlimit='8', stroke-width='17.6', rx='9.6', ry='9.6')
+                        span.hide-menu Dashboard
+                li.sidebar-item
+                    a.sidebar-link.has-arrow(href='javascript:void(0)', aria-expanded='false')
+                        svg.feather.feather-message-square.feather-icon(xmlns='http://www.w3.org/2000/svg', height='24', width='24', viewBox='0 0 64 64', fill='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+                            g
+                                path(d='M58.982 32.088c.003-.031.018-.057.018-.088 0-2.866-.589-28-21-28H26C12.654 4 5 14.206 5 32c0 .031.015.057.018.088C2.176 32.559 0 35.027 0 38v10c0 3.309 2.691 6 6 6v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5h32v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5c3.309 0 6-2.691 6-6V38c0-2.973-2.176-5.441-5.018-5.912zM26 6h12c18.467 0 19 23.339 19 26h-2c0-2.456-.505-24-18-24H27C15.393 8 9 16.523 9 32H7C7 9.378 18.904 6 26 6zm-2 18a8 8 0 0 0-8 8h-5c0-18.184 8.701-22 16-22h10c6.34 0 10.909 3.16 13.581 9.394C52.825 24.632 53 30.367 53 32H32a8 8 0 0 0-8-8zm6 8H18a6 6 0 0 1 12 0zM14 58H8v-4h6v4zm42 0h-6v-4h6v4zm6-10c0 2.206-1.794 4-4 4H6c-2.206 0-4-1.794-4-4V38c0-2.206 1.794-4 4-4h52c2.206 0 4 1.794 4 4v10z')
+                                path(d='M11 39c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zm42-6c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zm-10-5H21a1 1 0 1 0 0 2h22a1 1 0 1 0 0-2zm0 4H21a1 1 0 1 0 0 2h22a1 1 0 1 0 0-2zm-.293-28.706a.999.999 0 1 0-1.414 1.414l2 2a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-2-2zm-5-.001a.999.999 0 1 0-1.414 1.414l7 7a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-7-7z')
+                        span.hide-menu
+                            | Jobs
+                    ul.collapse.first-level.base-level-line(aria-expanded='false')
+                        li.sidebar-item
+                            a.sidebar-link(href='/applicant/jobs')
+                                span.hide-menu  All Jobs
+                        li.sidebar-item
+                            a.sidebar-link(href='/applicant/jobs/recommended')
+                                span.hide-menu  Recommended Jobs
+                li.list-divider
+                li.nav-small-cap
+                    span.hide-menu Account
+                li.sidebar-item
+                    a.sidebar-link.sidebar-link(href='/applicant/logout', aria-expanded='false')
+                        i.feather-icon(data-feather='log-out')
+                        span.hide-menu Logout

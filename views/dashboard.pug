@@ -1,0 +1,163 @@
+extends layout/main
+block preloadStyles
+    link(href="../assets/extra-libs/c3/c3.min.css", rel="stylesheet")
+
+block content
+    .page-breadcrumb
+        .row
+            .col-7.align-self-center
+                h3.page-title.text-truncate.text-dark.font-weight-medium.mb-1 Good Morning #{user.username}!
+                .d-flex.align-items-center
+                    nav(aria-label='breadcrumb')
+                        ol.breadcrumb.m-0.p-0
+                            li.breadcrumb-item
+                                a(href='/applicant/dashboard') Dashboard
+    .container-fluid
+        .row
+            .col-sm-6.col-lg-6
+                .card.border-end
+                    .card-body
+                        .d-flex.align-items-center
+                            div
+                                h2.text-dark.mb-1.w-100.text-truncate.font-weight-medium= totalApplications
+                                h6.text-muted.font-weight-normal.mb-0.w-100.text-truncate
+                                    | Total Applications
+                            .ms-auto.mt-md-3.mt-lg-0
+                                span.opacity-7.text-muted
+                                    svg.feather.feather-message-square.feather-icon(xmlns='http://www.w3.org/2000/svg', height='24', width='24', viewBox='0 0 540.36 800', fill='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+                                        circle(cx='270.18', cy='58.61', r='16.47', transform='translate(112.64 285.8) rotate(-67.5)')
+                                        path(d='m489.11,93.78h-46.71c-9.22-24.32-32.75-41.66-60.27-41.66h-44.58C329.78,22.17,302.53,0,270.18,0s-59.6,22.17-67.37,52.12h-44.58c-27.51,0-51.04,17.34-60.27,41.66h-46.71C22.99,93.78,0,116.77,0,145.03v603.72c0,28.26,22.99,51.25,51.25,51.25h280.2c7.04,0,12.74-5.7,12.74-12.74s-5.7-12.74-12.74-12.74H51.25c-14.21,0-25.77-11.56-25.77-25.77V145.03c0-14.21,11.56-25.77,25.77-25.77h42.54v1.77c0,2.06.16,4.09.46,6.07.44,2.9,1.21,5.68,2.24,8.34h-17.06c-7.04,0-12.74,5.7-12.74,12.74v352.14c0,7.04,5.7,12.74,12.74,12.74s12.74-5.7,12.74-12.74V160.92h356v536.26H92.18v-145.88c0-7.04-5.7-12.74-12.74-12.74s-12.74,5.7-12.74,12.74v158.63c0,7.04,5.7,12.74,12.74,12.74h381.48c7.04,0,12.74-5.7,12.74-12.74V148.17c0-7.04-5.7-12.74-12.74-12.74h-17.06c1.74-4.47,2.7-9.32,2.7-14.4v-1.77h42.54c14.21,0,25.77,11.56,25.77,25.77v83.46c0,7.04,5.7,12.74,12.74,12.74s12.74-5.7,12.74-12.74v-83.46h0c0-28.26-22.99-51.25-51.25-51.25Zm-263-25.98c.03-.59.07-1.21.12-1.88,0-.02,0-.05,0-.07,1.92-22.57,20.89-40.36,43.95-40.36s42.05,17.8,43.95,40.39v.04c.05.65.09,1.26.12,1.84.02.62.05,1.23.05,1.85v34.64h-88.23v-34.64h0c0-.61.02-1.21.05-1.81Zm180.57,67.64H133.68c-5.96,0-11.08-3.63-13.27-8.8-2.13-5.04-1.43-12.26-.41-17.52,3.49-17.92,19.3-31.5,38.23-31.5h42.35v39.38c0,7.04,5.7,12.74,12.74,12.74h113.72c7.04,0,12.74-5.7,12.74-12.74v-39.38h42.35c18.91,0,34.71,13.55,38.22,31.45.78,3.96.73,7.96.73,11.97,0,7.94-6.46,14.41-14.4,14.41Z')
+                                        path(d='m527.62,266.72c-7.04,0-12.74,5.7-12.74,12.74v469.29c0,14.21-11.56,25.77-25.77,25.77h-106.69c-7.04,0-12.74,5.7-12.74,12.74s5.7,12.74,12.74,12.74h106.69c28.26,0,51.25-22.99,51.25-51.25v-469.29c0-7.04-5.7-12.74-12.74-12.74Z')
+                                        g
+                                            path(d='m186.83,344.61c37.39,0,67.81-30.42,67.81-67.81s-30.42-67.8-67.81-67.8-67.81,30.41-67.81,67.8,30.42,67.81,67.81,67.81Zm0-120.08c28.83,0,52.3,23.45,52.3,52.29s-23.46,52.3-52.3,52.3-52.3-23.45-52.3-52.3,23.46-52.29,52.3-52.29Z')
+                                            path(d='m171.47,304.34c1.51,1.51,3.5,2.27,5.48,2.27s3.97-.76,5.48-2.27l36.87-36.87c3.03-3.03,3.03-7.93,0-10.97-3.03-3.03-7.93-3.03-10.96,0l-31.39,31.39-13.52-13.52c-3.03-3.03-7.93-3.03-10.96,0-3.03,3.02-3.03,7.93,0,10.96l19.01,19.01Z')
+                                            path(d='m270.44,269.74h142.9c4.29,0,7.75-3.48,7.75-7.75s-3.46-7.75-7.75-7.75h-142.9c-4.28,0-7.75,3.47-7.75,7.75,0,4.28,3.47,7.75,7.75,7.75Z')
+                                            path(d='m270.44,302.81h142.9c4.29,0,7.75-3.47,7.75-7.75s-3.46-7.75-7.75-7.75h-142.9c-4.28,0-7.75,3.47-7.75,7.75,0,4.28,3.47,7.75,7.75,7.75Z')
+                                            path(d='m186.83,501.42c37.39,0,67.81-30.41,67.81-67.8s-30.42-67.8-67.81-67.8-67.81,30.42-67.81,67.8,30.42,67.8,67.81,67.8Zm0-120.08c28.83,0,52.3,23.45,52.3,52.31s-23.46,52.28-52.3,52.28-52.3-23.45-52.3-52.28,23.46-52.31,52.3-52.31Z')
+                                            path(d='m270.44,426.56h142.9c4.29,0,7.75-3.46,7.75-7.75s-3.46-7.75-7.75-7.75h-142.9c-4.28,0-7.75,3.47-7.75,7.75,0,4.28,3.47,7.75,7.75,7.75Z')
+                                            path(d='m270.44,459.62h142.9c4.29,0,7.75-3.47,7.75-7.75s-3.46-7.75-7.75-7.75h-142.9c-4.28,0-7.75,3.47-7.75,7.75,0,4.29,3.47,7.75,7.75,7.75Z')
+                                            path(d='m186.83,657.25c37.39,0,67.81-30.42,67.81-67.81s-30.42-67.8-67.81-67.8-67.81,30.41-67.81,67.8,30.42,67.81,67.81,67.81Zm0-120.1c28.83,0,52.3,23.46,52.3,52.29s-23.46,52.3-52.3,52.3-52.3-23.45-52.3-52.3,23.46-52.29,52.3-52.29Z')
+                                            path(d='m270.44,582.39h142.9c4.29,0,7.75-3.48,7.75-7.75s-3.46-7.75-7.75-7.75h-142.9c-4.28,0-7.75,3.47-7.75,7.75,0,4.27,3.47,7.75,7.75,7.75Z')
+                                            path(d='m270.44,615.45h142.9c4.29,0,7.75-3.48,7.75-7.75s-3.46-7.75-7.75-7.75h-142.9c-4.28,0-7.75,3.47-7.75,7.75,0,4.27,3.47,7.75,7.75,7.75Z')
+                                            path(d='m196.09,437.23l15.01-15.01c2.56-2.56,2.56-6.7,0-9.26-2.56-2.56-6.7-2.56-9.26,0l-15.01,15.01-15.01-15.01c-2.56-2.56-6.7-2.56-9.26,0s-2.56,6.7,0,9.26l15.01,15.01-15.01,15.01c-2.56,2.56-2.56,6.7,0,9.26,1.28,1.28,2.95,1.92,4.63,1.92s3.35-.64,4.63-1.92l15.01-15.01,15.01,15.01c1.28,1.28,2.95,1.92,4.63,1.92s3.35-.64,4.63-1.92c2.56-2.56,2.56-6.7,0-9.26l-15.02-15.01Z')
+                                            g
+                                                path(d='m186.5,566.87c-2.89,0-5.24,2.34-5.24,5.24v26.19c0,2.9,2.35,5.24,5.24,5.24s5.24-2.34,5.24-5.24v-26.19c0-2.89-2.34-5.24-5.24-5.24Z')
+                                                path(d='m190.87,610.29c-.52-.47-1.05-.84-1.73-1.1-1.94-.84-4.24-.37-5.71,1.1-.94.99-1.52,2.36-1.52,3.72,0,.68.16,1.36.42,1.99.26.63.63,1.2,1.1,1.73.52.47,1.1.84,1.73,1.1.63.26,1.31.42,1.99.42,1.41,0,2.72-.53,3.72-1.52.47-.53.84-1.1,1.1-1.73.31-.63.42-1.31.42-1.99,0-1.36-.58-2.73-1.52-3.72Z')
+            .col-sm-6.col-lg-6
+                .card.border-end
+                    .card-body
+                        .d-flex.align-items-center
+                            div
+                                .d-inline-flex.align-items-center
+                                    h2.text-dark.mb-1.font-weight-medium= totalJobs
+                                h6.text-muted.font-weight-normal.mb-0.w-100.text-truncate
+                                    | Total Jobs
+                            .ms-auto.mt-md-3.mt-lg-0
+                                span.opacity-7.text-muted
+                                    svg.feather.feather-message-square.feather-icon(xmlns='http://www.w3.org/2000/svg', height='24', width='24', viewBox='0 0 463 463', fill='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+                                        path(d='m398.901 333.619-76.691-19.173c-.738-6.717-4.331-13.04-10.3-17.019l-11.384-7.59C326.38 265.001 343 226.566 343 183.5c0-6.313-.74-13.369-2.187-20.993a15.448 15.448 0 0 0 2.187-7.951v-41.408l31.31-67.838a7.5 7.5 0 0 0-4.957-10.411l-136-34.667a7.496 7.496 0 0 0-3.705 0l-136 34.667a7.5 7.5 0 0 0-4.957 10.411L120 113.147v41.408c0 2.368.526 4.643 1.504 6.693A165.248 165.248 0 0 0 120 183.5c0 43.066 16.62 81.501 42.473 106.338l-11.384 7.59c-5.969 3.979-9.562 10.302-10.3 17.019L64.098 333.62A63.407 63.407 0 0 0 16 395.223V439.5c0 12.958 10.542 23.5 23.5 23.5h384c12.958 0 23.5-10.542 23.5-23.5v-44.277a63.408 63.408 0 0 0-48.099-61.604zm-92.418-12.846a133679.479 133679.479 0 0 1-29.199 58.414c-12.863-11.311-24.587-18.251-32.629-22.236l51.801-51.8 7.135 4.757c3.558 2.372 4.801 7.043 2.892 10.865zM230.112 399h2.776l6.189 49h-15.155l6.19-49zM240 383.5a.5.5 0 0 1-.5.5h-16a.5.5 0 0 1-.5-.5v-12.062c3.722-1.946 6.651-3.214 8.499-3.951 1.853.738 4.781 2.007 8.501 3.951V383.5zM135.724 155.003a.44.44 0 0 1-.365.032 7.574 7.574 0 0 0-.357-.442l-.001-.037v-22.109c6.331 3.817 13.823 6.717 20.755 8.85.345.106.707.205 1.055.309l-2.565 4.137-18.522 9.26zm24.443-28.044c-8.697-2.676-14.598-5.455-18.487-7.959h179.64c-3.889 2.504-9.79 5.283-18.487 7.959-18.947 5.83-44.281 9.041-71.333 9.041s-52.386-3.211-71.333-9.041zM231.5 55c4.687 0 8.5 3.813 8.5 8.5s-3.813 8.5-8.5 8.5-8.5-3.813-8.5-8.5 3.813-8.5 8.5-8.5zm75.745 86.296c6.931-2.133 14.424-5.032 20.755-8.85v22.109c0 .104 0 .279-.237.425-.236.148-.393.069-.486.022l-18.678-9.339-2.708-3.971c.448-.133.911-.26 1.354-.396zM330.701 104h-91.699l.002-18.236C248.292 82.625 255 73.834 255 63.5c0-10.336-6.71-19.128-16-22.266V17.151l117.913 30.056L330.701 104zM224 17.151v24.083c-9.29 3.138-16 11.93-16 22.266 0 10.337 6.711 19.13 16.003 22.267L224.002 104h-91.703l-26.212-56.792L224 17.151zM135 183.5c0-4.494.225-8.984.624-13.438 2.32-.02 4.644-.561 6.809-1.643l20.422-10.211a7.498 7.498 0 0 0 3.02-2.756l6.21-10.017c17.499 3.62 38.003 5.565 59.416 5.565 21.189 0 41.484-1.907 58.863-5.455l6.941 10.18a7.49 7.49 0 0 0 2.842 2.483l20.422 10.211a15.502 15.502 0 0 0 6.315 1.615c.736 4.866 1.117 9.381 1.117 13.467 0 66.444-43.29 120.5-96.5 120.5S135 249.944 135 183.5zM231.5 319c13.338 0 26.136-2.865 38.001-8.108L231.5 348.893l-38.001-38.001C205.364 316.135 218.161 319 231.5 319zm-72.091-9.093 7.135-4.757 51.801 51.8c-8.042 3.985-19.766 10.925-32.629 22.236-4.522-9.038-13.217-26.428-29.199-58.414-1.91-3.821-.667-8.492 2.892-10.865zM31 439.5v-44.276a48.429 48.429 0 0 1 36.737-47.052l76.185-19.046 31.881 63.766c1.452 2.896 2.707 5.396 6.495 6.012a7.503 7.503 0 0 0 6.471-2.065c6.749-6.66 13.304-11.971 19.231-16.169v2.83c0 5.531 2.922 10.382 7.293 13.125L208.804 448H103v-24.5c0-4.142-3.357-7.5-7.5-7.5s-7.5 3.358-7.5 7.5V448H39.5c-4.687 0-8.5-3.813-8.5-8.5zm256-1V422h41v16.5c0 3.426-1.07 6.732-3.024 9.5h-34.952a16.46 16.46 0 0 1-3.024-9.5zm145 1c0 4.687-3.813 8.5-8.5 8.5H375v-24.5c0-4.142-3.357-7.5-7.5-7.5s-7.5 3.358-7.5 7.5V448h-18.47a31.5 31.5 0 0 0 1.47-9.5v-24a7.5 7.5 0 0 0-7.5-7.5h-56a7.5 7.5 0 0 0-7.5 7.5v24a31.5 31.5 0 0 0 1.47 9.5h-19.274l-6.49-51.375c4.372-2.744 7.293-7.594 7.293-13.125v-2.83c5.927 4.198 12.483 9.508 19.231 16.169a7.504 7.504 0 0 0 6.471 2.065c3.788-.615 5.043-3.116 6.495-6.012l31.881-63.766 76.185 19.047A48.426 48.426 0 0 1 432 395.223V439.5z')
+                                        path(d='M215.5 263h32c4.143 0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-32c-4.143 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5zM184 183.003v8.5c0 4.142 3.357 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-8.5h.499c4.143 0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-24c-4.143 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5H184zm79.5 0h.5v8.5c0 4.142 3.357 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-8.5h8.5c4.143 0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-24c-4.143 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5z')
+        //.row
+            .col-lg-4.col-md-6.col-12
+                .card
+                    .card-body
+                        h4.card-title Inspections
+                        #inspections-chart.mt-2(style='height:283px; width:100%;')
+                        ul.list-style-none.mb-0
+                            li
+                                i.fas.fa-circle.text-success.font-10.me-2
+                                span.text-muted Pass
+                                span#pass.text-dark.float-end.font-weight-medium= inspectionItemStatusCount.Pass
+                            li.mt-3
+                                i.fas.fa-circle.text-warning.font-10.me-2
+                                span.text-muted Warning
+                                span#warning.text-dark.float-end.font-weight-medium= inspectionItemStatusCount.Warning
+                            li.mt-3
+                                i.fas.fa-circle.text-danger.font-10.me-2
+                                span.text-muted Fail
+                                span#fail.text-dark.float-end.font-weight-medium= inspectionItemStatusCount.Fail
+            .col-lg-4.col-md-6.col-12
+                .card
+                    .card-body
+                        h4.card-title Recent Logins
+                        .mt-4.activity
+                            // .d-flex.align-items-start.border-left-line.pb-3
+                                div
+                                    a.btn.btn-info.btn-circle.mb-2.btn-item(href='javascript:void(0)', style='width: auto;height: auto;line-height: 0;padding: 0;')
+                                        img.rounded-circle(src='../assets/images/users/widget-table-pic1.jpg', alt='user', width='42', height='42')
+                                .ms-3.mt-2
+                                    h5.text-dark.font-weight-medium.mb-2 New Product Sold!
+                                    p.font-14.mb-2.text-muted John Musa just purchased
+                                    span.font-weight-light.font-14.text-muted 10 Minutes Ago
+                            // .d-flex.align-items-start.border-left-line.pb-3
+                                div
+                                    a.btn.btn-info.btn-circle.mb-2.btn-item(href='javascript:void(0)', style='width: auto;height: auto;line-height: 0;padding: 0;')
+                                        img.rounded-circle(src='../assets/images/users/widget-table-pic1.jpg', alt='user', width='42', height='42')
+                                .ms-3.mt-2
+                                    h5.text-dark.font-weight-medium.mb-2 New Product Sold!
+                                    p.font-14.mb-2.text-muted John Musa just purchased
+                                    span.font-weight-light.font-14.text-muted 10 Minutes Ago
+                            // .d-flex.align-items-start.border-left-line
+                                div
+                                    a.btn.btn-info.btn-circle.mb-2.btn-item(href='javascript:void(0)', style='width: auto;height: auto;line-height: 0;padding: 0;')
+                                        img.rounded-circle(src='../assets/images/users/widget-table-pic1.jpg', alt='user', width='42', height='42')
+                                .ms-3.mt-2
+                                    h5.text-dark.font-weight-medium.mb-2 New Product Sold!
+                                    p.font-14.mb-2.text-muted John Musa just purchased
+                                    span.font-weight-light.font-14.text-muted 10 Minutes Ago
+                            | Not Enough Data
+            .col-lg-4.col-md-12
+                .card
+                    .card-body
+                        .d-flex.align-items-center.mb-4
+                            h4.card-title Top Inspectors
+                        .table-responsive
+                            table.table.no-wrap.v-middle.mb-0
+                                thead.d-lg-none
+                                    tr.border-0
+                                        th.border-0.font-14.font-weight-medium.text-muted
+                                            | Inspector
+                                        th.border-0.font-14.font-weight-medium.text-muted Inspections
+                                tbody
+                                    //tr
+                                        td.border-top-0.px-2.py-4
+                                            .d-flex.no-block.align-items-center
+                                                .me-3
+                                                    img.rounded-circle(src='../assets/images/users/widget-table-pic1.jpg', alt='user', width='45', height='45')
+                                                div
+                                                    h5.text-dark.mb-0.font-16.font-weight-medium
+                                                        | Hanna
+                                                        | Gover
+                                                    span.text-muted.font-14 hgover@gmail.com
+                                        td.d-lg-none.font-weight-medium.text-dark.border-top-0.px-2.py-4
+                                            | $96K
+                                    //tr
+                                        td.border-top-0.px-2.py-4
+                                            .d-flex.no-block.align-items-center
+                                                .me-3
+                                                    img.rounded-circle(src='../assets/images/users/widget-table-pic1.jpg', alt='user', width='45', height='45')
+                                                div
+                                                    h5.text-dark.mb-0.font-16.font-weight-medium
+                                                        | Hanna
+                                                        | Gover
+                                                    span.text-muted.font-14 hgover@gmail.com
+                                        td.d-lg-none.font-weight-medium.text-dark.border-top-0.px-2.py-4
+                                            | $96K
+                                    //tr
+                                        td.border-top-0.px-2.py-4
+                                            .d-flex.no-block.align-items-center
+                                                .me-3
+                                                    img.rounded-circle(src='../assets/images/users/widget-table-pic1.jpg', alt='user', width='45', height='45')
+                                                div
+                                                    h5.text-dark.mb-0.font-16.font-weight-medium
+                                                        | Hanna
+                                                        | Gover
+                                                    span.text-muted.font-14 hgover@gmail.com
+                                        td.d-lg-none.font-weight-medium.text-dark.border-top-0.px-2.py-4
+                                            | $96K
+                                    | Not Enough Data
+
+block scripts
+    script(src='/assets/extra-libs/c3/d3.min.js')
+    script(src='/assets/extra-libs/c3/c3.min.js')
+    script(src='/dist/js/pages/dashboards/dashboard1.min.js')

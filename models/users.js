@@ -1,133 +1,114 @@
-const select = require('./database/select');
-const insert = require('./database/insert');
-const update = require('./database/update');
-const remove = require('./database/delete');
+const db = require('../services/database');
 
-const table = 'users';
-const fields = 'id, username, email, role';
+const User = {
+    role: '',
+    getRole: function () {
+        return this.role;
+    },
 
-module.exports = {
-    /**
-     * Retrieves all the rows from the table.
-     *
-     * @return {Promise<Array>} An array of rows from the table.
-     */
-    getAll: async () => {
+    // Create a new user
+    create: async function (userData) {
         try {
-            const rows = await select(table, fields);
-            return rows;
-        } catch (err) {
-            throw err;
+            const { company_id, username, email, password_hash } = userData;
+            const query = 'INSERT INTO users (company_id, username, email, password_hash, role) VALUES (?, ?, ?, ?, ?)';
+            const [result] = await db.query(query, [company_id, username, email, password_hash, this.role]);
+            return result.insertId;
+        } catch (error) {
+            throw error;
         }
     },
 
-    /**
-     * Retrieves all rows by role from the table.
-     *
-     * @param {string} role - role to filter by
-     * @return {Array} array of rows
-     */
-    getAllByRole: async (role) => {
+    // Get User by Email
+    getByEmail: async function (email, companyId) {
         try {
-            const rows = await select(table, fields, 'WHERE role = ?', [role]);
-            return rows;
-        } catch (err) {
-            throw err;
-        }
-    },
-
-    /**
-     * Retrieves a single row from the table based on the provided criteria.
-     *
-     * @param {string} by - The column name to search by.
-     * @param {any} value - The value to search for.
-     * @return {Promise<object>} The retrieved row from the table.
-     */
-    get: async (by, value) => {
-        try {
-            const rows = await select(table, fields, `WHERE ${by} = ?`, [value]);
+            const [rows] = await db.query('SELECT * FROM users WHERE email = ? and role = ? and company_id = ?', [email, this.role, companyId]);
             return rows[0];
-        } catch (err) {
-            throw err;
+        } catch(error) {
+            throw error;
         }
     },
 
-    /**
-     * Asynchronously gets a row by a specified role and value.
-     *
-     * @param {string} by - the column to search by
-     * @param {string} value - the value to search for
-     * @param {string} role - the role to search for
-     * @return {object} the first row found
-     */
-    getByRole: async (by, value, role) => {
+    getByUsername: async function (username, companyId) {
         try {
-            const rows = await select(table, fields, `WHERE ${by} = ? and role = ?`, [value, role]);
+            const [rows] = await db.query('SELECT * FROM users WHERE username = ? and role = ? and company_id = ?', [username, this.role, companyId]);
             return rows[0];
-        } catch (err) {
-            throw err;
+        } catch(error) {
+            throw error;
         }
     },
 
-    /**
-     * Count the number of rows in the table based on a specific condition.
-     *
-     * @param {string} by - The column name to filter by.
-     * @param {string} value - The value to filter by.
-     * @return {number} The total number of rows that match the condition.
-     */
-    count: async (by, value) => {
+    // Get user by ID
+    getUserById: async (userId) => {
         try {
-            const total = await select(table, 'COUNT(*) as total', `WHERE ${by} = ?`, [value]);
-            return total[0]['total'];
-        } catch (err) {
-            throw err;
+            const [rows] = await db.query('SELECT * FROM users WHERE user_id = ?', [userId]);
+            return rows[0];
+        } catch (error) {
+            throw error;
         }
     },
 
-    /**
-     * Creates a new entry in the table with the provided data.
-     *
-     * @param {Object} data - The data to be inserted into the table.
-     * @return {Promise<number>} The ID of the newly inserted row.
-     */
-    create: async (data) => {
+    // Get user by email
+    getUserByEmail: async (email, role) => {
         try {
-            const insertId = await insert(table, data);
-            return insertId;
-        } catch (err) {
-            throw err;
+            const [rows] = await db.query('SELECT * FROM users WHERE email = ? and role = ?', [email, role]);
+            return rows[0];
+        } catch (error) {
+            throw error;
         }
     },
 
-    /**
-     * Updates a record in the database table by its ID.
-     *
-     * @param {number} id - The ID of the record to update.
-     * @param {object} data - The updated data to be applied to the record.
-     * @return {Promise<number>} The number of affected rows in the database.
-     */
-    updateById: async (id, data) => {
+    // Get user by username
+    getUserByUsername: async (username) => {
         try {
-            const rowsAffected = await update(table, data, 'WHERE id = ?', [id]);
-            return rowsAffected;
-        } catch (err) {
-            throw err;
+            const [rows] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
+            return rows[0];
+        } catch (error) {
+            throw error;
         }
     },
 
-    /**
-     * Deletes a record from the database by its ID.
-     *
-     * @param {number} id - The ID of the record to be deleted.
-     * @return {Promise<number>} The number of affected rows.
-     */
-    deleteById: async (id) => {
+    update: async (userId, companyId, updateFields, values) => {
         try {
-            const rowsAffected = await remove(table, 'WHERE id = ?', [id]);
-            return rowsAffected;
-        } catch (err) {
-            throw err;
+            const query = `Update users SET ${updateFields} WHERE user_id = ? AND company_id = ?`;
+            await db.query(query, [...values, userId, companyId]);
+            return true;
+        } catch (error) {
+            throw error;
         }
-    }
+    },
+
+    // Update user details
+    updateUser: async (userId, companyId, userData) => {
+        try {
+            const { username, email, password_hash, role } = userData;
+            const query = 'UPDATE users SET username = ?, email = ?, password_hash = ?, role = ? WHERE user_id = ? AND company_id = ?';
+            await db.query(query, [username, email, password_hash, role, userId, companyId]);
+            return true;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    // Delete user by ID
+    deleteUser: async (userId, companyId) => {
+        try {
+            await db.query('DELETE FROM users WHERE user_id = ? AND company_id = ?', [userId, companyId]);
+            return true;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    // Get all users by company ID
+    getAllUsersByCompanyId: async (companyId) => {
+        try {
+            const [rows] = await db.query('SELECT * FROM users WHERE company_id = ?', [companyId]);
+            return rows;
+        } catch (error) {
+            throw error;
+        }
+    },
+
 };
+
+module.exports = User;
