@@ -50,8 +50,6 @@ const applicantController = {
         try {
             const { companyId, userId, applicantId, ...data } = req.body;
 
-            console.log(data)
-
             if (Object.keys(data).length === 0) {
                 throwErr('Nothing to update!', 400);
             }
@@ -122,7 +120,7 @@ const applicantController = {
                     }
 
                     if (!Object.keys(edu).includes('education_id')) {
-                        throwErr("education_id is required to update experience records.", 400);
+                        throwErr("education_id is required to update education records.", 400);
                     }
 
                     const { education_id, degree, major, institution, start_date, end_date } = edu;

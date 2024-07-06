@@ -1,0 +1,5 @@
+pdfplumber
+spacy
+dataparser
+google-generativeai
+nltk
