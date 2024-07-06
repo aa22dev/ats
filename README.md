@@ -1,27 +1,28 @@
+<!-- omit from toc -->
 # Recruitment &amp; Application Tracking System
 
+<!-- omit from toc -->
 ## Table of Contents
-- [Recruitment \& Application Tracking System](#recruitment--application-tracking-system)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-    - [MySQL Database Configuration](#mysql-database-configuration)
-    - [Server Configuration](#server-configuration)
-    - [Global Configuration](#global-configuration)
-    - [Logger Configuration](#logger-configuration)
-  - [Usage](#usage)
-    - [Run App](#run-app)
-    - [APIs Endpoints](#apis-endpoints)
-      - [Registration and OTP Verification](#registration-and-otp-verification)
-      - [Login and Validate Session](#login-and-validate-session)
-      - [Profile, Profile Status and Resume Management](#profile-profile-status-and-resume-management)
-      - [Job Recommendation \& Application](#job-recommendation--application)
-      - [Psychometric Test](#psychometric-test)
-    - [Directory Structure](#directory-structure)
+- [1. Introduction](#1-introduction)
+- [2. Features](#2-features)
+- [3. Installation](#3-installation)
+- [4. Configuration](#4-configuration)
+  - [4.1. MySQL Database Configuration](#41-mysql-database-configuration)
+  - [4.2. Server Configuration](#42-server-configuration)
+  - [4.3. Global Configuration](#43-global-configuration)
+  - [4.4. Logger Configuration](#44-logger-configuration)
+- [5. Usage](#5-usage)
+  - [5.1. Run App](#51-run-app)
+  - [5.2. APIs Endpoints](#52-apis-endpoints)
+    - [5.2.1. Registration and OTP Verification](#521-registration-and-otp-verification)
+    - [5.2.2. Login and Validate Session](#522-login-and-validate-session)
+    - [5.2.3. Profile, Profile Status and Resume Management](#523-profile-profile-status-and-resume-management)
+    - [5.2.4. Job Recommendation \& Application](#524-job-recommendation--application)
+    - [5.2.5. Psychometric Test](#525-psychometric-test)
+- [6. Directory Structure](#6-directory-structure)
+- [7. Contributing](#7-contributing)
 
-## Introduction
+## 1. Introduction
 
 This project is a comprehensive Recruitment & Application Tracking System (ATS). It provides a robust platform for managing the entire recruitment process. Applicants can register, apply for jobs, upload resumes, and complete psychometric tests. The system supports OTP verification during registration, ensuring secure user authentication. Additionally, it offers role-based functionalities, catering to different user types such as applicants, employers, companies, and administrators.
 
@@ -29,7 +30,7 @@ The system allows companies to configure custom SMTP settings for sending system
 
 To enhance the system's reliability and maintainability, an extensive logging layer is integrated, capturing access logs and error logs for easy debugging and monitoring. This ensures that any issues can be quickly identified and resolved, providing a smooth and secure user experience.
 
-## Features
+## 2. Features
 
 - User Registration with OTP verification
 - Custom SMTP configuration for companies
@@ -44,7 +45,7 @@ To enhance the system's reliability and maintainability, an extensive logging la
 - Secure Session Token generation.
 - API based architecture
 
-## Installation
+## 3. Installation
 
 1. Clone the repository:
     ```bash
@@ -65,9 +66,9 @@ To enhance the system's reliability and maintainability, an extensive logging la
     ```
 4. Set up your MySQL database and import the `ats.sql` file to create the necessary tables with mock data.
 
-## Configuration
+## 4. Configuration
 
-### MySQL Database Configuration
+### 4.1. MySQL Database Configuration
 **File:** `config/database.js`
 
 This file defines the configuration setting for the database. 
@@ -85,7 +86,7 @@ connectionLimit: 10, // Max no. of Database Connections at once
 queueLimit: 0 // Setup the Database connection Queue Limit
 ```
 
-### Server Configuration
+### 4.2. Server Configuration
 **File:** `config/server.js`
 
 This file defines the configuration setting for the server. 
@@ -99,7 +100,7 @@ viewEngine: 'pug',  //  Specify the templating engine used (default: Pug)
 statics: path.join(__basedir, 'public'),  //  Define the directory containing static assets (e.g., CSS, JS, images etc.)
 ```
 
-### Global Configuration
+### 4.3. Global Configuration
 **File:** `config/server.js`
 
 This file defines global configurations and constants used throughout the application. 
@@ -122,7 +123,7 @@ Object.assign(global, {
 });
 ```
 
-### Logger Configuration
+### 4.4. Logger Configuration
 **File:** `config/logger.js`
 
 This file configures logging for the application using Winston and Express Winston.
@@ -194,9 +195,9 @@ const accessLogger = morgan('combined', {
 
 ```
 
-## Usage
+## 5. Usage
 
-### Run App
+### 5.1. Run App
 - For development Environment:
     ```bash
     npm run dev
@@ -206,9 +207,9 @@ const accessLogger = morgan('combined', {
     npm run app
     ```
 
-### APIs Endpoints
+### 5.2. APIs Endpoints
 
-#### Registration and OTP Verification
+#### 5.2.1. Registration and OTP Verification
 
 - **Register**: `POST /api/v1/applicant/register`
   - Headers: 
@@ -243,7 +244,7 @@ const accessLogger = morgan('combined', {
     }
     ```
 
-#### Login and Validate Session
+#### 5.2.2. Login and Validate Session
 - **Login**: `POST /api/v1/applicant/login`
   - Headers: 
     ```JSON
@@ -277,7 +278,7 @@ const accessLogger = morgan('combined', {
     }
     ``` 
 
-#### Profile, Profile Status and Resume Management
+#### 5.2.3. Profile, Profile Status and Resume Management
 
 - **Upload Resume**: `POST /api/v1/applicant/upload/resume`
   - Headers: 
@@ -379,7 +380,7 @@ const accessLogger = morgan('combined', {
     }
     ```
 
-#### Job Recommendation & Application
+#### 5.2.4. Job Recommendation & Application
 - **Job Recommendations**: `GET /api/v1/applicant/job/recommendations`
   - Headers: 
     ```JSON
@@ -422,7 +423,7 @@ const accessLogger = morgan('combined', {
     }
     ```
 
-#### Psychometric Test
+#### 5.2.5. Psychometric Test
 
 - **Get Psychometric Test**: `GET /api/v1/applicant/test/psychometric/:id`
   - Headers: 
@@ -470,7 +471,7 @@ const accessLogger = morgan('combined', {
     }
     ```
 
-### Directory Structure
+## 6. Directory Structure
 
 <details>
   <summary>Click to expand!</summary>
@@ -1108,3 +1109,11 @@ recruitement-and-application-system/<br>
 ├── package-lock.json<br>
 └── package.json<br>
 </details>
+
+## 7. Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request for any feature additions or bug fixes.
+
+Major Contributions are of:
+- [Aqib Hussain](https://github.com/aa22dev)
+- Hafiz Jawad Mansoor
