@@ -474,637 +474,637 @@ const accessLogger = morgan('combined', {
 
 <details>
   <summary>Click to expand!</summary>
-recruitement-and-application-system/
-├── cache
-├── config
-│   ├── database.js
-│   ├── globals.js
-│   ├── logger.js
-│   └── server.js
-├── controllers
-│   ├── applicant.js
-│   ├── application.js
-│   ├── company.js
-│   ├── jobs.js
-│   ├── profile.js
-│   ├── psychometricTest.js
-│   └── resume.js
-├── helpers
-│   ├── calculateTestResult.js
-│   ├── dataValidityChecker.js
-│   ├── error.js
-│   ├── otp.js
-│   ├── shuffle.js
-│   └── validateData.js
-├── logs
-│   ├── access.log
-│   ├── combined.log
-│   └── error.log
-├── middleware
-│   ├── auth.js
-│   ├── errorHandler.js
-│   └── webAuth.js
-├── models
-│   ├── allowed_origins.js
-│   ├── api_access_logs.js
-│   ├── api_keys.js
-│   ├── api_usage.js
-│   ├── applicants.js
-│   ├── applications.js
-│   ├── audit_trail.js
-│   ├── companies.js
-│   ├── education.js
-│   ├── experience.js
-│   ├── job_skills.js
-│   ├── jobs.js
-│   ├── psychometric_tests.js
-│   ├── recommendations.js
-│   ├── sessions.js
-│   ├── skills.js
-│   ├── smtp_configurations.js
-│   ├── system_settings.js
-│   ├── user_skills.js
-│   └── users.js
-├── public
-│   ├── assets
-│   │   ├── extra-libs
-│   │   │   ├── c3
-│   │   │   │   ├── c3.min.css
-│   │   │   │   ├── c3.min.js
-│   │   │   │   └── d3.min.js
-│   │   │   ├── datatables.net
-│   │   │   │   ├── js
-│   │   │   │   │   ├── jquery.dataTables.js
-│   │   │   │   │   └── jquery.dataTables.min.js
-│   │   │   │   ├── License.txt
-│   │   │   │   ├── Readme.md
-│   │   │   │   └── package.json
-│   │   │   ├── datatables.net-bs4
-│   │   │   │   ├── css
-│   │   │   │   │   ├── dataTables.bootstrap4.css
-│   │   │   │   │   ├── dataTables.bootstrap4.min.css
-│   │   │   │   │   └── responsive.dataTables.min.css
-│   │   │   │   ├── js
-│   │   │   │   │   ├── dataTables.bootstrap4.js
-│   │   │   │   │   ├── dataTables.bootstrap4.min.js
-│   │   │   │   │   └── dataTables.responsive.min.js
-│   │   │   │   ├── Readme.md
-│   │   │   │   └── package.json
-│   │   │   ├── jvector
-│   │   │   │   ├── gdp-data.js
-│   │   │   │   ├── jquery-jvectormap-2.0.2.css
-│   │   │   │   ├── jquery-jvectormap-2.0.2.min.js
-│   │   │   │   ├── jquery-jvectormap-asia-mill.js
-│   │   │   │   ├── jquery-jvectormap-au-mill.js
-│   │   │   │   ├── jquery-jvectormap-ca-lcc.js
-│   │   │   │   ├── jquery-jvectormap-de-mill.js
-│   │   │   │   ├── jquery-jvectormap-europe-mill-en.js
-│   │   │   │   ├── jquery-jvectormap-in-mill.js
-│   │   │   │   ├── jquery-jvectormap-uk-mill-en.js
-│   │   │   │   ├── jquery-jvectormap-us-aea-en.js
-│   │   │   │   ├── jquery-jvectormap-us-il-chicago-mill-en.js
-│   │   │   │   ├── jquery-jvectormap-world-mill-en.js
-│   │   │   │   └── jvectormap.custom.js
-│   │   │   ├── knob
-│   │   │   │   ├── jquery.knob.js
-│   │   │   │   └── jquery.knob.min.js
-│   │   │   ├── prism
-│   │   │   │   ├── prism-old.js
-│   │   │   │   ├── prism.css
-│   │   │   │   └── prism.js
-│   │   │   ├── sparkline
-│   │   │   │   └── sparkline.js
-│   │   │   └── taskboard
-│   │   │       ├── css
-│   │   │       │   ├── demo.css
-│   │   │       │   ├── jquery-ui.min.css
-│   │   │       │   ├── lobilist.css
-│   │   │       │   └── lobilist.min.css
-│   │   │       ├── example1
-│   │   │       │   ├── delete.php
-│   │   │       │   ├── insert.php
-│   │   │       │   ├── load.json
-│   │   │       │   └── update.php
-│   │   │       ├── js
-│   │   │       │   ├── demo.js
-│   │   │       │   ├── jquery-ui.min.js
-│   │   │       │   ├── jquery.ui.touch-punch-improved.js
-│   │   │       │   ├── lobibox.min.js
-│   │   │       │   ├── lobilist.js
-│   │   │       │   ├── lobilist.min.js
-│   │   │       │   └── task-init.js
-│   │   │       └── less
-│   │   │           ├── lobilist.less
-│   │   │           ├── mixins.less
-│   │   │           └── variables.less
-│   │   ├── images
-│   │   │   ├── alert
-│   │   │   │   ├── alert.png
-│   │   │   │   ├── alert2.png
-│   │   │   │   ├── alert3.png
-│   │   │   │   ├── alert4.png
-│   │   │   │   ├── alert5.png
-│   │   │   │   ├── alert6.png
-│   │   │   │   ├── alert7.png
-│   │   │   │   ├── model.png
-│   │   │   │   ├── model2.png
-│   │   │   │   └── model3.png
-│   │   │   ├── background
-│   │   │   │   ├── Thumbs.db
-│   │   │   │   ├── active-bg.jpg
-│   │   │   │   ├── active-bg.png
-│   │   │   │   ├── beauty.jpg
-│   │   │   │   ├── error-bg.jpg
-│   │   │   │   ├── img5.jpg
-│   │   │   │   ├── img5.png
-│   │   │   │   ├── login-register.jpg
-│   │   │   │   ├── megamenubg.jpg
-│   │   │   │   ├── nyan-cat.gif
-│   │   │   │   ├── profile-bg.jpg
-│   │   │   │   ├── sidebarbg.png
-│   │   │   │   ├── socialbg.jpg
-│   │   │   │   ├── user-bg.jpg
-│   │   │   │   ├── user-info.jpg
-│   │   │   │   └── weatherbg.jpg
-│   │   │   ├── big
-│   │   │   │   ├── 1.jpg
-│   │   │   │   ├── 3.jpg
-│   │   │   │   ├── 5.jpg
-│   │   │   │   ├── Thumbs.db
-│   │   │   │   ├── auth-bg.jpg
-│   │   │   │   ├── auth-bg2.jpg
-│   │   │   │   ├── d2.jpg
-│   │   │   │   ├── icon.png
-│   │   │   │   ├── img1.jpg
-│   │   │   │   ├── img2.jpg
-│   │   │   │   ├── img3.jpg
-│   │   │   │   ├── img4.jpg
-│   │   │   │   ├── img5.jpg
-│   │   │   │   └── img6.jpg
-│   │   │   ├── browser
-│   │   │   │   ├── chrome-logo.png
-│   │   │   │   ├── edge-logo.png
-│   │   │   │   ├── firefox-logo.png
-│   │   │   │   ├── internet-logo.png
-│   │   │   │   ├── netscape-logo.png
-│   │   │   │   ├── opera-logo.png
-│   │   │   │   ├── photoshop.jpg
-│   │   │   │   ├── safari-logo.png
-│   │   │   │   └── sketch.jpg
-│   │   │   ├── docs
-│   │   │   │   └── gulp.jpg
-│   │   │   ├── gallery
-│   │   │   │   ├── chair.jpg
-│   │   │   │   ├── chair2.jpg
-│   │   │   │   ├── chair3.jpg
-│   │   │   │   └── chair4.jpg
-│   │   │   ├── landingpage
-│   │   │   │   ├── banne-img.png
-│   │   │   │   ├── banner-bg.png
-│   │   │   │   ├── brand-logos.png
-│   │   │   │   ├── db.png
-│   │   │   │   ├── f1.png
-│   │   │   │   ├── f2.png
-│   │   │   │   ├── f3.png
-│   │   │   │   ├── favicon.png
-│   │   │   │   ├── icon-sprite.jpg
-│   │   │   │   ├── img2.jpg
-│   │   │   │   ├── img3.jpg
-│   │   │   │   ├── logo.png
-│   │   │   │   ├── logos.png
-│   │   │   │   ├── right-img.png
-│   │   │   │   ├── section-bg.png
-│   │   │   │   └── section-img.png
-│   │   │   ├── product
-│   │   │   │   ├── chair.png
-│   │   │   │   ├── chair2.png
-│   │   │   │   ├── chair3.png
-│   │   │   │   ├── chair4.png
-│   │   │   │   ├── ipad.png
-│   │   │   │   ├── iphone.png
-│   │   │   │   ├── iwatch.png
-│   │   │   │   ├── p1.jpg
-│   │   │   │   ├── p2.jpg
-│   │   │   │   ├── p3.jpg
-│   │   │   │   └── p4.jpg
-│   │   │   ├── qr-codes
-│   │   │   │   ├── 12.svg
-│   │   │   │   └── 13.svg
-│   │   │   ├── rating
-│   │   │   │   ├── cancel-off.png
-│   │   │   │   ├── cancel-on.png
-│   │   │   │   ├── heart.png
-│   │   │   │   ├── like.png
-│   │   │   │   ├── star-half-mono.png
-│   │   │   │   ├── star-half.png
-│   │   │   │   ├── star-off.png
-│   │   │   │   └── star-on.png
-│   │   │   ├── tooltip
-│   │   │   │   ├── Euclid.png
-│   │   │   │   ├── shape1.svg
-│   │   │   │   ├── shape2.svg
-│   │   │   │   ├── shape3.svg
-│   │   │   │   ├── tooltip1.svg
-│   │   │   │   ├── tooltip2.svg
-│   │   │   │   └── tooltip3.svg
-│   │   │   ├── users
-│   │   │   │   ├── 1-old.jpg
-│   │   │   │   ├── 1.jpg
-│   │   │   │   ├── 1.png
-│   │   │   │   ├── 2.jpg
-│   │   │   │   ├── 2.png
-│   │   │   │   ├── 3.jpg
-│   │   │   │   ├── 3.png
-│   │   │   │   ├── 4.jpg
-│   │   │   │   ├── 5.jpg
-│   │   │   │   ├── 6.jpg
-│   │   │   │   ├── 7.jpg
-│   │   │   │   ├── 8.jpg
-│   │   │   │   ├── agent.jpg
-│   │   │   │   ├── agent2.jpg
-│   │   │   │   ├── d1.jpg
-│   │   │   │   ├── d2.jpg
-│   │   │   │   ├── d3.jpg
-│   │   │   │   ├── d4.jpg
-│   │   │   │   ├── d5.jpg
-│   │   │   │   ├── default-avatar.png
-│   │   │   │   ├── profile-pic-2.jpg
-│   │   │   │   ├── profile-pic.jpg
-│   │   │   │   ├── profile.png
-│   │   │   │   ├── widget-table-pic1.jpg
-│   │   │   │   ├── widget-table-pic2.jpg
-│   │   │   │   ├── widget-table-pic3.jpg
-│   │   │   │   └── widget-table-pic4.jpg
-│   │   │   ├── widgets
-│   │   │   │   ├── 1.jpg
-│   │   │   │   ├── 2.jpg
-│   │   │   │   ├── 3.jpg
-│   │   │   │   ├── widget-carousel-2.jpg
-│   │   │   │   └── widget-carousel.jpg
-│   │   │   ├── angular-templates.png
-│   │   │   ├── bootstrap-templates.png
-│   │   │   ├── custom-select.png
-│   │   │   ├── favicon.png
-│   │   │   ├── favicon.svg
-│   │   │   ├── freedash.svg
-│   │   │   ├── freedashDark.svg
-│   │   │   ├── img1.jpg
-│   │   │   ├── img2.jpg
-│   │   │   ├── img3.jpg
-│   │   │   ├── logo-1.svg
-│   │   │   ├── logo-icon-1.png
-│   │   │   ├── logo-icon.png
-│   │   │   ├── logo-light-text.png
-│   │   │   ├── logo-text-1.png
-│   │   │   ├── logo-text.png
-│   │   │   ├── logo.svg
-│   │   │   └── react-templates.png
-│   │   └── libs
-│   │       ├── bootstrap
-│   │       │   └── dist
-│   │       │       ├── css
-│   │       │       │   ├── bootstrap-grid.css
-│   │       │       │   ├── bootstrap-grid.css.map
-│   │       │       │   ├── bootstrap-grid.min.css
-│   │       │       │   ├── bootstrap-grid.min.css.map
-│   │       │       │   ├── bootstrap-grid.rtl.css
-│   │       │       │   ├── bootstrap-grid.rtl.css.map
-│   │       │       │   ├── bootstrap-grid.rtl.min.css
-│   │       │       │   ├── bootstrap-grid.rtl.min.css.map
-│   │       │       │   ├── bootstrap-reboot.css
-│   │       │       │   ├── bootstrap-reboot.css.map
-│   │       │       │   ├── bootstrap-reboot.min.css
-│   │       │       │   ├── bootstrap-reboot.min.css.map
-│   │       │       │   ├── bootstrap-reboot.rtl.css
-│   │       │       │   ├── bootstrap-reboot.rtl.css.map
-│   │       │       │   ├── bootstrap-reboot.rtl.min.css
-│   │       │       │   ├── bootstrap-reboot.rtl.min.css.map
-│   │       │       │   ├── bootstrap-utilities.css
-│   │       │       │   ├── bootstrap-utilities.css.map
-│   │       │       │   ├── bootstrap-utilities.min.css
-│   │       │       │   ├── bootstrap-utilities.min.css.map
-│   │       │       │   ├── bootstrap-utilities.rtl.css
-│   │       │       │   ├── bootstrap-utilities.rtl.css.map
-│   │       │       │   ├── bootstrap-utilities.rtl.min.css
-│   │       │       │   ├── bootstrap-utilities.rtl.min.css.map
-│   │       │       │   ├── bootstrap.css
-│   │       │       │   ├── bootstrap.css.map
-│   │       │       │   ├── bootstrap.min.css
-│   │       │       │   ├── bootstrap.min.css.map
-│   │       │       │   ├── bootstrap.rtl.css
-│   │       │       │   ├── bootstrap.rtl.css.map
-│   │       │       │   ├── bootstrap.rtl.min.css
-│   │       │       │   └── bootstrap.rtl.min.css.map
-│   │       │       └── js
-│   │       │           ├── bootstrap.bundle.js
-│   │       │           ├── bootstrap.bundle.js.map
-│   │       │           ├── bootstrap.bundle.min.js
-│   │       │           ├── bootstrap.bundle.min.js.map
-│   │       │           ├── bootstrap.esm.js
-│   │       │           ├── bootstrap.esm.js.map
-│   │       │           ├── bootstrap.esm.min.js
-│   │       │           ├── bootstrap.esm.min.js.map
-│   │       │           ├── bootstrap.js
-│   │       │           ├── bootstrap.js.map
-│   │       │           ├── bootstrap.min.js
-│   │       │           └── bootstrap.min.js.map
-│   │       ├── chart.js
-│   │       │   └── dist
-│   │       │       ├── Chart.bundle.min.js
-│   │       │       ├── Chart.min.css
-│   │       │       └── Chart.min.js
-│   │       ├── chartist
-│   │       │   └── dist
-│   │       │       ├── chartist.min.css
-│   │       │       └── chartist.min.js
-│   │       ├── chartist-plugin-tooltips
-│   │       │   └── dist
-│   │       │       ├── chartist-plugin-tooltip.css
-│   │       │       └── chartist-plugin-tooltip.min.js
-│   │       ├── datatables.net-bs4
-│   │       │   ├── css
-│   │       │   │   └── dataTables.bootstrap4.min.css
-│   │       │   └── js
-│   │       │       └── dataTables.bootstrap4.min.js
-│   │       ├── fullcalendar
-│   │       │   └── dist
-│   │       │       ├── fullcalendar.min.css
-│   │       │       ├── fullcalendar.min.js
-│   │       │       ├── fullcalendar.print.min.css
-│   │       │       ├── gcal.min.js
-│   │       │       └── locale-all.js
-│   │       ├── jquery
-│   │       │   └── dist
-│   │       │       ├── core.js
-│   │       │       ├── jquery.js
-│   │       │       ├── jquery.min.js
-│   │       │       ├── jquery.min.map
-│   │       │       ├── jquery.slim.js
-│   │       │       ├── jquery.slim.min.js
-│   │       │       └── jquery.slim.min.map
-│   │       ├── moment
-│   │       │   ├── min
-│   │       │   │   ├── locales.min.js
-│   │       │   │   ├── moment-with-locales.min.js
-│   │       │   │   └── moment.min.js
-│   │       │   ├── ender.js
-│   │       │   ├── moment.js
-│   │       │   └── package.js
-│   │       ├── morris.js
-│   │       │   ├── bower.travis.json
-│   │       │   ├── morris.css
-│   │       │   └── morris.min.js
-│   │       ├── perfect-scrollbar
-│   │       │   └── dist
-│   │       │       ├── css
-│   │       │       │   └── perfect-scrollbar.min.css
-│   │       │       ├── js
-│   │       │       │   ├── perfect-scrollbar.jquery.min.js
-│   │       │       │   └── perfect-scrollbar.min.js
-│   │       │       ├── perfect-scrollbar.common.js
-│   │       │       ├── perfect-scrollbar.esm.js
-│   │       │       ├── perfect-scrollbar.jquery.min.js
-│   │       │       └── perfect-scrollbar.min.js
-│   │       ├── popper.js
-│   │       │   └── dist
-│   │       │       ├── esm
-│   │       │       │   ├── popper-utils.min.js
-│   │       │       │   └── popper.min.js
-│   │       │       ├── umd
-│   │       │       │   ├── popper-utils.min.js
-│   │       │       │   ├── popper.min.js
-│   │       │       │   └── poppper.js.flow
-│   │       │       ├── popper-utils.min.js
-│   │       │       └── popper.min.js
-│   │       └── raphael
-│   │           ├── dev
-│   │           │   ├── banner.txt
-│   │           │   ├── raphael.amd.js
-│   │           │   ├── raphael.core.js
-│   │           │   ├── raphael.svg.js
-│   │           │   ├── raphael.vml.js
-│   │           │   └── raphaelTest.html
-│   │           ├── license.txt
-│   │           ├── raphael.min.js
-│   │           └── raphael.no-deps.min.js
-│   ├── dist
-│   │   ├── css
-│   │   │   ├── fonts
-│   │   │   │   ├── Gilmer-Bold.eot
-│   │   │   │   ├── Gilmer-Bold.otf
-│   │   │   │   ├── Gilmer-Bold.svg
-│   │   │   │   ├── Gilmer-Bold.ttf
-│   │   │   │   ├── Gilmer-Bold.woff
-│   │   │   │   ├── Gilmer-Heavy.eot
-│   │   │   │   ├── Gilmer-Heavy.otf
-│   │   │   │   ├── Gilmer-Heavy.svg
-│   │   │   │   ├── Gilmer-Heavy.ttf
-│   │   │   │   ├── Gilmer-Heavy.woff
-│   │   │   │   ├── Gilmer-Medium.eot
-│   │   │   │   ├── Gilmer-Medium.otf
-│   │   │   │   ├── Gilmer-Medium.svg
-│   │   │   │   ├── Gilmer-Medium.ttf
-│   │   │   │   ├── Gilmer-Medium.woff
-│   │   │   │   ├── Gilmer-Regular.eot
-│   │   │   │   ├── Gilmer-Regular.otf
-│   │   │   │   ├── Gilmer-Regular.svg
-│   │   │   │   ├── Gilmer-Regular.ttf
-│   │   │   │   ├── Gilmer-Regular.woff
-│   │   │   │   ├── TofinoPersonal-Book.eot
-│   │   │   │   ├── TofinoPersonal-Book.otf
-│   │   │   │   ├── TofinoPersonal-Book.svg
-│   │   │   │   ├── TofinoPersonal-Book.ttf
-│   │   │   │   ├── TofinoPersonal-Book.woff
-│   │   │   │   ├── TofinoPersonal-Medium.eot
-│   │   │   │   ├── TofinoPersonal-Medium.otf
-│   │   │   │   ├── TofinoPersonal-Medium.svg
-│   │   │   │   ├── TofinoPersonal-Medium.ttf
-│   │   │   │   ├── TofinoPersonal-Medium.woff
-│   │   │   │   ├── TofinoPersonal-Regular.eot
-│   │   │   │   ├── TofinoPersonal-Regular.otf
-│   │   │   │   ├── TofinoPersonal-Regular.svg
-│   │   │   │   ├── TofinoPersonal-Regular.ttf
-│   │   │   │   └── TofinoPersonal-Regular.woff
-│   │   │   ├── icons
-│   │   │   │   ├── font-awesome
-│   │   │   │   │   ├── css
-│   │   │   │   │   │   ├── fa-brands.css
-│   │   │   │   │   │   ├── fa-brands.min.css
-│   │   │   │   │   │   ├── fa-regular.css
-│   │   │   │   │   │   ├── fa-regular.min.css
-│   │   │   │   │   │   ├── fa-solid.css
-│   │   │   │   │   │   ├── fa-solid.min.css
-│   │   │   │   │   │   ├── fontawesome-all.css
-│   │   │   │   │   │   ├── fontawesome-all.min.css
-│   │   │   │   │   │   ├── fontawesome.css
-│   │   │   │   │   │   └── fontawesome.min.css
-│   │   │   │   │   ├── less
-│   │   │   │   │   │   ├── _animated.less
-│   │   │   │   │   │   ├── _bordered-pulled.less
-│   │   │   │   │   │   ├── _core.less
-│   │   │   │   │   │   ├── _fixed-width.less
-│   │   │   │   │   │   ├── _icons.less
-│   │   │   │   │   │   ├── _larger.less
-│   │   │   │   │   │   ├── _list.less
-│   │   │   │   │   │   ├── _mixins.less
-│   │   │   │   │   │   ├── _rotated-flipped.less
-│   │   │   │   │   │   ├── _screen-reader.less
-│   │   │   │   │   │   ├── _stacked.less
-│   │   │   │   │   │   ├── _variables.less
-│   │   │   │   │   │   ├── fa-brands.less
-│   │   │   │   │   │   ├── fa-regular.less
-│   │   │   │   │   │   ├── fa-solid.less
-│   │   │   │   │   │   └── fontawesome.less
-│   │   │   │   │   ├── scss
-│   │   │   │   │   │   ├── _animated.scss
-│   │   │   │   │   │   ├── _bordered-pulled.scss
-│   │   │   │   │   │   ├── _core.scss
-│   │   │   │   │   │   ├── _fixed-width.scss
-│   │   │   │   │   │   ├── _icons.scss
-│   │   │   │   │   │   ├── _larger.scss
-│   │   │   │   │   │   ├── _list.scss
-│   │   │   │   │   │   ├── _mixins.scss
-│   │   │   │   │   │   ├── _rotated-flipped.scss
-│   │   │   │   │   │   ├── _screen-reader.scss
-│   │   │   │   │   │   ├── _stacked.scss
-│   │   │   │   │   │   ├── _variables.scss
-│   │   │   │   │   │   ├── fa-brands.scss
-│   │   │   │   │   │   ├── fa-regular.scss
-│   │   │   │   │   │   ├── fa-solid.scss
-│   │   │   │   │   │   └── fontawesome.scss
-│   │   │   │   │   └── webfonts
-│   │   │   │   │       ├── fa-brands-400.eot
-│   │   │   │   │       ├── fa-brands-400.svg
-│   │   │   │   │       ├── fa-brands-400.ttf
-│   │   │   │   │       ├── fa-brands-400.woff
-│   │   │   │   │       ├── fa-brands-400.woff2
-│   │   │   │   │       ├── fa-regular-400.eot
-│   │   │   │   │       ├── fa-regular-400.svg
-│   │   │   │   │       ├── fa-regular-400.ttf
-│   │   │   │   │       ├── fa-regular-400.woff
-│   │   │   │   │       ├── fa-regular-400.woff2
-│   │   │   │   │       ├── fa-solid-900.eot
-│   │   │   │   │       ├── fa-solid-900.svg
-│   │   │   │   │       ├── fa-solid-900.ttf
-│   │   │   │   │       ├── fa-solid-900.woff
-│   │   │   │   │       └── fa-solid-900.woff2
-│   │   │   │   ├── simple-line-icons
-│   │   │   │   │   ├── css
-│   │   │   │   │   │   └── simple-line-icons.css
-│   │   │   │   │   ├── fonts
-│   │   │   │   │   │   ├── Simple-Line-Icons.eot
-│   │   │   │   │   │   ├── Simple-Line-Icons.svg
-│   │   │   │   │   │   ├── Simple-Line-Icons.ttf
-│   │   │   │   │   │   ├── Simple-Line-Icons.woff
-│   │   │   │   │   │   └── Simple-Line-Icons.woff2
-│   │   │   │   │   ├── less
-│   │   │   │   │   │   └── simple-line-icons.less
-│   │   │   │   │   └── scss
-│   │   │   │   │       └── simple-line-icons.scss
-│   │   │   │   └── themify-icons
-│   │   │   │       ├── fonts
-│   │   │   │       │   ├── themify.eot
-│   │   │   │       │   ├── themify.svg
-│   │   │   │       │   ├── themify.ttf
-│   │   │   │       │   └── themify.woff
-│   │   │   │       ├── ie7
-│   │   │   │       │   ├── ie7.css
-│   │   │   │       │   └── ie7.js
-│   │   │   │       ├── themify-icons.css
-│   │   │   │       └── themify-icons.less
-│   │   │   ├── custom.css
-│   │   │   ├── login.css
-│   │   │   ├── login.min.css
-│   │   │   ├── pandalocker.min.css
-│   │   │   ├── single-inspection.css
-│   │   │   ├── style.css
-│   │   │   ├── style.min.css
-│   │   │   └── table.css
-│   │   ├── img
-│   │   │   ├── button-loader-f2f2f2.gif
-│   │   │   ├── lock-icon.png
-│   │   │   └── social-icons.png
-│   │   └── js
-│   │       ├── pages
-│   │       │   ├── calendar
-│   │       │   │   ├── cal-init.js
-│   │       │   │   └── cal-init.min.js
-│   │       │   ├── chartist
-│   │       │   │   ├── chartist-init.css
-│   │       │   │   ├── chartist-init.js
-│   │       │   │   ├── chartist-init.min.js
-│   │       │   │   ├── chartist-plugin-tooltip.js
-│   │       │   │   └── chartist-plugin-tooltip.min.js
-│   │       │   ├── chartjs
-│   │       │   │   ├── chartjs.init.js
-│   │       │   │   └── chartjs.init.min.js
-│   │       │   ├── dashboards
-│   │       │   │   ├── dashboard1.js
-│   │       │   │   └── dashboard1.min.js
-│   │       │   ├── datatable
-│   │       │   │   ├── data.json
-│   │       │   │   ├── datatable-basic.init.js
-│   │       │   │   ├── datatable-basic.init.min.js
-│   │       │   │   ├── datatable-inspections.js
-│   │       │   │   ├── datatable-inspectors.js
-│   │       │   │   ├── datatable-qr.js
-│   │       │   │   └── datatable-recommended-jobs.js
-│   │       │   └── morris
-│   │       │       ├── morris-data.js
-│   │       │       └── morris-data.min.js
-│   │       ├── app-style-switcher.js
-│   │       ├── app-style-switcher.min.js
-│   │       ├── custom.js
-│   │       ├── custom.min.js
-│   │       ├── feather.min.js
-│   │       ├── jquery.ui.highlight.min.js
-│   │       ├── pandalocker.js
-│   │       ├── pandalocker.min.js
-│   │       ├── sidebarmenu.js
-│   │       └── sidebarmenu.min.js
-│   └── uploads
-│       ├── images
-│       └── resume
-├── routes
-│   ├── api
-│   │   └── v1
-│   │       ├── applicant.js
-│   │       ├── company.js
-│   │       └── jobs.js
-│   └── web
-│       └── applicant.js
-├── services
-│   ├── parser
-│   │   ├── dataparser.py
-│   │   └── parser.py
-│   ├── similarity
-│   │   └── compute.py
-│   ├── authUtils.js
-│   ├── database.js
-│   ├── email.js
-│   ├── generateApiKey.js
-│   ├── jobRecommendation.js
-│   ├── middleware.js
-│   ├── resumeParser.js
-│   ├── router.js
-│   └── sessionUtils.js
-├── views
-│   ├── layout
-│   │   ├── footer.pug
-│   │   ├── head.pug
-│   │   ├── header.pug
-│   │   ├── main.pug
-│   │   ├── preloader.pug
-│   │   ├── scripts.pug
-│   │   └── sidebar.pug
-│   ├── all-jobs.pug
-│   ├── dashboard.pug
-│   ├── index.pug
-│   └── recommended-jobs.pug
-├── .gitignore
-├── README.md
-├── app.js
-├── generate_structure.py
-├── package-lock.json
-└── package.json
+recruitement-and-application-system/<br>
+├── cache<br>
+├── config<br>
+│   ├── database.js<br>
+│   ├── globals.js<br>
+│   ├── logger.js<br>
+│   └── server.js<br>
+├── controllers<br>
+│   ├── applicant.js<br>
+│   ├── application.js<br>
+│   ├── company.js<br>
+│   ├── jobs.js<br>
+│   ├── profile.js<br>
+│   ├── psychometricTest.js<br>
+│   └── resume.js<br>
+├── helpers<br>
+│   ├── calculateTestResult.js<br>
+│   ├── dataValidityChecker.js<br>
+│   ├── error.js<br>
+│   ├── otp.js<br>
+│   ├── shuffle.js<br>
+│   └── validateData.js<br>
+├── logs<br>
+│   ├── access.log<br>
+│   ├── combined.log<br>
+│   └── error.log<br>
+├── middleware<br>
+│   ├── auth.js<br>
+│   ├── errorHandler.js<br>
+│   └── webAuth.js<br>
+├── models<br>
+│   ├── allowed_origins.js<br>
+│   ├── api_access_logs.js<br>
+│   ├── api_keys.js<br>
+│   ├── api_usage.js<br>
+│   ├── applicants.js<br>
+│   ├── applications.js<br>
+│   ├── audit_trail.js<br>
+│   ├── companies.js<br>
+│   ├── education.js<br>
+│   ├── experience.js<br>
+│   ├── job_skills.js<br>
+│   ├── jobs.js<br>
+│   ├── psychometric_tests.js<br>
+│   ├── recommendations.js<br>
+│   ├── sessions.js<br>
+│   ├── skills.js<br>
+│   ├── smtp_configurations.js<br>
+│   ├── system_settings.js<br>
+│   ├── user_skills.js<br>
+│   └── users.js<br>
+├── public<br>
+│   ├── assets<br>
+│   │   ├── extra-libs<br>
+│   │   │   ├── c3<br>
+│   │   │   │   ├── c3.min.css<br>
+│   │   │   │   ├── c3.min.js<br>
+│   │   │   │   └── d3.min.js<br>
+│   │   │   ├── datatables.net<br>
+│   │   │   │   ├── js<br>
+│   │   │   │   │   ├── jquery.dataTables.js<br>
+│   │   │   │   │   └── jquery.dataTables.min.js<br>
+│   │   │   │   ├── License.txt<br>
+│   │   │   │   ├── Readme.md<br>
+│   │   │   │   └── package.json<br>
+│   │   │   ├── datatables.net-bs4<br>
+│   │   │   │   ├── css<br>
+│   │   │   │   │   ├── dataTables.bootstrap4.css<br>
+│   │   │   │   │   ├── dataTables.bootstrap4.min.css<br>
+│   │   │   │   │   └── responsive.dataTables.min.css<br>
+│   │   │   │   ├── js<br>
+│   │   │   │   │   ├── dataTables.bootstrap4.js<br>
+│   │   │   │   │   ├── dataTables.bootstrap4.min.js<br>
+│   │   │   │   │   └── dataTables.responsive.min.js<br>
+│   │   │   │   ├── Readme.md<br>
+│   │   │   │   └── package.json<br>
+│   │   │   ├── jvector<br>
+│   │   │   │   ├── gdp-data.js<br>
+│   │   │   │   ├── jquery-jvectormap-2.0.2.css<br>
+│   │   │   │   ├── jquery-jvectormap-2.0.2.min.js<br>
+│   │   │   │   ├── jquery-jvectormap-asia-mill.js<br>
+│   │   │   │   ├── jquery-jvectormap-au-mill.js<br>
+│   │   │   │   ├── jquery-jvectormap-ca-lcc.js<br>
+│   │   │   │   ├── jquery-jvectormap-de-mill.js<br>
+│   │   │   │   ├── jquery-jvectormap-europe-mill-en.js<br>
+│   │   │   │   ├── jquery-jvectormap-in-mill.js<br>
+│   │   │   │   ├── jquery-jvectormap-uk-mill-en.js<br>
+│   │   │   │   ├── jquery-jvectormap-us-aea-en.js<br>
+│   │   │   │   ├── jquery-jvectormap-us-il-chicago-mill-en.js<br>
+│   │   │   │   ├── jquery-jvectormap-world-mill-en.js<br>
+│   │   │   │   └── jvectormap.custom.js<br>
+│   │   │   ├── knob<br>
+│   │   │   │   ├── jquery.knob.js<br>
+│   │   │   │   └── jquery.knob.min.js<br>
+│   │   │   ├── prism<br>
+│   │   │   │   ├── prism-old.js<br>
+│   │   │   │   ├── prism.css<br>
+│   │   │   │   └── prism.js<br>
+│   │   │   ├── sparkline<br>
+│   │   │   │   └── sparkline.js<br>
+│   │   │   └── taskboard<br>
+│   │   │       ├── css<br>
+│   │   │       │   ├── demo.css<br>
+│   │   │       │   ├── jquery-ui.min.css<br>
+│   │   │       │   ├── lobilist.css<br>
+│   │   │       │   └── lobilist.min.css<br>
+│   │   │       ├── example1<br>
+│   │   │       │   ├── delete.php<br>
+│   │   │       │   ├── insert.php<br>
+│   │   │       │   ├── load.json<br>
+│   │   │       │   └── update.php<br>
+│   │   │       ├── js<br>
+│   │   │       │   ├── demo.js<br>
+│   │   │       │   ├── jquery-ui.min.js<br>
+│   │   │       │   ├── jquery.ui.touch-punch-improved.js<br>
+│   │   │       │   ├── lobibox.min.js<br>
+│   │   │       │   ├── lobilist.js<br>
+│   │   │       │   ├── lobilist.min.js<br>
+│   │   │       │   └── task-init.js<br>
+│   │   │       └── less<br>
+│   │   │           ├── lobilist.less<br>
+│   │   │           ├── mixins.less<br>
+│   │   │           └── variables.less<br>
+│   │   ├── images<br>
+│   │   │   ├── alert<br>
+│   │   │   │   ├── alert.png<br>
+│   │   │   │   ├── alert2.png<br>
+│   │   │   │   ├── alert3.png<br>
+│   │   │   │   ├── alert4.png<br>
+│   │   │   │   ├── alert5.png<br>
+│   │   │   │   ├── alert6.png<br>
+│   │   │   │   ├── alert7.png<br>
+│   │   │   │   ├── model.png<br>
+│   │   │   │   ├── model2.png<br>
+│   │   │   │   └── model3.png<br>
+│   │   │   ├── background<br>
+│   │   │   │   ├── Thumbs.db<br>
+│   │   │   │   ├── active-bg.jpg<br>
+│   │   │   │   ├── active-bg.png<br>
+│   │   │   │   ├── beauty.jpg<br>
+│   │   │   │   ├── error-bg.jpg<br>
+│   │   │   │   ├── img5.jpg<br>
+│   │   │   │   ├── img5.png<br>
+│   │   │   │   ├── login-register.jpg<br>
+│   │   │   │   ├── megamenubg.jpg<br>
+│   │   │   │   ├── nyan-cat.gif<br>
+│   │   │   │   ├── profile-bg.jpg<br>
+│   │   │   │   ├── sidebarbg.png<br>
+│   │   │   │   ├── socialbg.jpg<br>
+│   │   │   │   ├── user-bg.jpg<br>
+│   │   │   │   ├── user-info.jpg<br>
+│   │   │   │   └── weatherbg.jpg<br>
+│   │   │   ├── big<br>
+│   │   │   │   ├── 1.jpg<br>
+│   │   │   │   ├── 3.jpg<br>
+│   │   │   │   ├── 5.jpg<br>
+│   │   │   │   ├── Thumbs.db<br>
+│   │   │   │   ├── auth-bg.jpg<br>
+│   │   │   │   ├── auth-bg2.jpg<br>
+│   │   │   │   ├── d2.jpg<br>
+│   │   │   │   ├── icon.png<br>
+│   │   │   │   ├── img1.jpg<br>
+│   │   │   │   ├── img2.jpg<br>
+│   │   │   │   ├── img3.jpg<br>
+│   │   │   │   ├── img4.jpg<br>
+│   │   │   │   ├── img5.jpg<br>
+│   │   │   │   └── img6.jpg<br>
+│   │   │   ├── browser<br>
+│   │   │   │   ├── chrome-logo.png<br>
+│   │   │   │   ├── edge-logo.png<br>
+│   │   │   │   ├── firefox-logo.png<br>
+│   │   │   │   ├── internet-logo.png<br>
+│   │   │   │   ├── netscape-logo.png<br>
+│   │   │   │   ├── opera-logo.png<br>
+│   │   │   │   ├── photoshop.jpg<br>
+│   │   │   │   ├── safari-logo.png<br>
+│   │   │   │   └── sketch.jpg<br>
+│   │   │   ├── docs<br>
+│   │   │   │   └── gulp.jpg<br>
+│   │   │   ├── gallery<br>
+│   │   │   │   ├── chair.jpg<br>
+│   │   │   │   ├── chair2.jpg<br>
+│   │   │   │   ├── chair3.jpg<br>
+│   │   │   │   └── chair4.jpg<br>
+│   │   │   ├── landingpage<br>
+│   │   │   │   ├── banne-img.png<br>
+│   │   │   │   ├── banner-bg.png<br>
+│   │   │   │   ├── brand-logos.png<br>
+│   │   │   │   ├── db.png<br>
+│   │   │   │   ├── f1.png<br>
+│   │   │   │   ├── f2.png<br>
+│   │   │   │   ├── f3.png<br>
+│   │   │   │   ├── favicon.png<br>
+│   │   │   │   ├── icon-sprite.jpg<br>
+│   │   │   │   ├── img2.jpg<br>
+│   │   │   │   ├── img3.jpg<br>
+│   │   │   │   ├── logo.png<br>
+│   │   │   │   ├── logos.png<br>
+│   │   │   │   ├── right-img.png<br>
+│   │   │   │   ├── section-bg.png<br>
+│   │   │   │   └── section-img.png<br>
+│   │   │   ├── product<br>
+│   │   │   │   ├── chair.png<br>
+│   │   │   │   ├── chair2.png<br>
+│   │   │   │   ├── chair3.png<br>
+│   │   │   │   ├── chair4.png<br>
+│   │   │   │   ├── ipad.png<br>
+│   │   │   │   ├── iphone.png<br>
+│   │   │   │   ├── iwatch.png<br>
+│   │   │   │   ├── p1.jpg<br>
+│   │   │   │   ├── p2.jpg<br>
+│   │   │   │   ├── p3.jpg<br>
+│   │   │   │   └── p4.jpg<br>
+│   │   │   ├── qr-codes<br>
+│   │   │   │   ├── 12.svg<br>
+│   │   │   │   └── 13.svg<br>
+│   │   │   ├── rating<br>
+│   │   │   │   ├── cancel-off.png<br>
+│   │   │   │   ├── cancel-on.png<br>
+│   │   │   │   ├── heart.png<br>
+│   │   │   │   ├── like.png<br>
+│   │   │   │   ├── star-half-mono.png<br>
+│   │   │   │   ├── star-half.png<br>
+│   │   │   │   ├── star-off.png<br>
+│   │   │   │   └── star-on.png<br>
+│   │   │   ├── tooltip<br>
+│   │   │   │   ├── Euclid.png<br>
+│   │   │   │   ├── shape1.svg<br>
+│   │   │   │   ├── shape2.svg<br>
+│   │   │   │   ├── shape3.svg<br>
+│   │   │   │   ├── tooltip1.svg<br>
+│   │   │   │   ├── tooltip2.svg<br>
+│   │   │   │   └── tooltip3.svg<br>
+│   │   │   ├── users<br>
+│   │   │   │   ├── 1-old.jpg<br>
+│   │   │   │   ├── 1.jpg<br>
+│   │   │   │   ├── 1.png<br>
+│   │   │   │   ├── 2.jpg<br>
+│   │   │   │   ├── 2.png<br>
+│   │   │   │   ├── 3.jpg<br>
+│   │   │   │   ├── 3.png<br>
+│   │   │   │   ├── 4.jpg<br>
+│   │   │   │   ├── 5.jpg<br>
+│   │   │   │   ├── 6.jpg<br>
+│   │   │   │   ├── 7.jpg<br>
+│   │   │   │   ├── 8.jpg<br>
+│   │   │   │   ├── agent.jpg<br>
+│   │   │   │   ├── agent2.jpg<br>
+│   │   │   │   ├── d1.jpg<br>
+│   │   │   │   ├── d2.jpg<br>
+│   │   │   │   ├── d3.jpg<br>
+│   │   │   │   ├── d4.jpg<br>
+│   │   │   │   ├── d5.jpg<br>
+│   │   │   │   ├── default-avatar.png<br>
+│   │   │   │   ├── profile-pic-2.jpg<br>
+│   │   │   │   ├── profile-pic.jpg<br>
+│   │   │   │   ├── profile.png<br>
+│   │   │   │   ├── widget-table-pic1.jpg<br>
+│   │   │   │   ├── widget-table-pic2.jpg<br>
+│   │   │   │   ├── widget-table-pic3.jpg<br>
+│   │   │   │   └── widget-table-pic4.jpg<br>
+│   │   │   ├── widgets<br>
+│   │   │   │   ├── 1.jpg<br>
+│   │   │   │   ├── 2.jpg<br>
+│   │   │   │   ├── 3.jpg<br>
+│   │   │   │   ├── widget-carousel-2.jpg<br>
+│   │   │   │   └── widget-carousel.jpg<br>
+│   │   │   ├── angular-templates.png<br>
+│   │   │   ├── bootstrap-templates.png<br>
+│   │   │   ├── custom-select.png<br>
+│   │   │   ├── favicon.png<br>
+│   │   │   ├── favicon.svg<br>
+│   │   │   ├── freedash.svg<br>
+│   │   │   ├── freedashDark.svg<br>
+│   │   │   ├── img1.jpg<br>
+│   │   │   ├── img2.jpg<br>
+│   │   │   ├── img3.jpg<br>
+│   │   │   ├── logo-1.svg<br>
+│   │   │   ├── logo-icon-1.png<br>
+│   │   │   ├── logo-icon.png<br>
+│   │   │   ├── logo-light-text.png<br>
+│   │   │   ├── logo-text-1.png<br>
+│   │   │   ├── logo-text.png<br>
+│   │   │   ├── logo.svg<br>
+│   │   │   └── react-templates.png<br>
+│   │   └── libs<br>
+│   │       ├── bootstrap<br>
+│   │       │   └── dist<br>
+│   │       │       ├── css<br>
+│   │       │       │   ├── bootstrap-grid.css<br>
+│   │       │       │   ├── bootstrap-grid.css.map<br>
+│   │       │       │   ├── bootstrap-grid.min.css<br>
+│   │       │       │   ├── bootstrap-grid.min.css.map<br>
+│   │       │       │   ├── bootstrap-grid.rtl.css<br>
+│   │       │       │   ├── bootstrap-grid.rtl.css.map<br>
+│   │       │       │   ├── bootstrap-grid.rtl.min.css<br>
+│   │       │       │   ├── bootstrap-grid.rtl.min.css.map<br>
+│   │       │       │   ├── bootstrap-reboot.css<br>
+│   │       │       │   ├── bootstrap-reboot.css.map<br>
+│   │       │       │   ├── bootstrap-reboot.min.css<br>
+│   │       │       │   ├── bootstrap-reboot.min.css.map<br>
+│   │       │       │   ├── bootstrap-reboot.rtl.css<br>
+│   │       │       │   ├── bootstrap-reboot.rtl.css.map<br>
+│   │       │       │   ├── bootstrap-reboot.rtl.min.css<br>
+│   │       │       │   ├── bootstrap-reboot.rtl.min.css.map<br>
+│   │       │       │   ├── bootstrap-utilities.css<br>
+│   │       │       │   ├── bootstrap-utilities.css.map<br>
+│   │       │       │   ├── bootstrap-utilities.min.css<br>
+│   │       │       │   ├── bootstrap-utilities.min.css.map<br>
+│   │       │       │   ├── bootstrap-utilities.rtl.css<br>
+│   │       │       │   ├── bootstrap-utilities.rtl.css.map<br>
+│   │       │       │   ├── bootstrap-utilities.rtl.min.css<br>
+│   │       │       │   ├── bootstrap-utilities.rtl.min.css.map<br>
+│   │       │       │   ├── bootstrap.css<br>
+│   │       │       │   ├── bootstrap.css.map<br>
+│   │       │       │   ├── bootstrap.min.css<br>
+│   │       │       │   ├── bootstrap.min.css.map<br>
+│   │       │       │   ├── bootstrap.rtl.css<br>
+│   │       │       │   ├── bootstrap.rtl.css.map<br>
+│   │       │       │   ├── bootstrap.rtl.min.css<br>
+│   │       │       │   └── bootstrap.rtl.min.css.map<br>
+│   │       │       └── js<br>
+│   │       │           ├── bootstrap.bundle.js<br>
+│   │       │           ├── bootstrap.bundle.js.map<br>
+│   │       │           ├── bootstrap.bundle.min.js<br>
+│   │       │           ├── bootstrap.bundle.min.js.map<br>
+│   │       │           ├── bootstrap.esm.js<br>
+│   │       │           ├── bootstrap.esm.js.map<br>
+│   │       │           ├── bootstrap.esm.min.js<br>
+│   │       │           ├── bootstrap.esm.min.js.map<br>
+│   │       │           ├── bootstrap.js<br>
+│   │       │           ├── bootstrap.js.map<br>
+│   │       │           ├── bootstrap.min.js<br>
+│   │       │           └── bootstrap.min.js.map<br>
+│   │       ├── chart.js<br>
+│   │       │   └── dist<br>
+│   │       │       ├── Chart.bundle.min.js<br>
+│   │       │       ├── Chart.min.css<br>
+│   │       │       └── Chart.min.js<br>
+│   │       ├── chartist<br>
+│   │       │   └── dist<br>
+│   │       │       ├── chartist.min.css<br>
+│   │       │       └── chartist.min.js<br>
+│   │       ├── chartist-plugin-tooltips<br>
+│   │       │   └── dist<br>
+│   │       │       ├── chartist-plugin-tooltip.css<br>
+│   │       │       └── chartist-plugin-tooltip.min.js<br>
+│   │       ├── datatables.net-bs4<br>
+│   │       │   ├── css<br>
+│   │       │   │   └── dataTables.bootstrap4.min.css<br>
+│   │       │   └── js<br>
+│   │       │       └── dataTables.bootstrap4.min.js<br>
+│   │       ├── fullcalendar<br>
+│   │       │   └── dist<br>
+│   │       │       ├── fullcalendar.min.css<br>
+│   │       │       ├── fullcalendar.min.js<br>
+│   │       │       ├── fullcalendar.print.min.css<br>
+│   │       │       ├── gcal.min.js<br>
+│   │       │       └── locale-all.js<br>
+│   │       ├── jquery<br>
+│   │       │   └── dist<br>
+│   │       │       ├── core.js<br>
+│   │       │       ├── jquery.js<br>
+│   │       │       ├── jquery.min.js<br>
+│   │       │       ├── jquery.min.map<br>
+│   │       │       ├── jquery.slim.js<br>
+│   │       │       ├── jquery.slim.min.js<br>
+│   │       │       └── jquery.slim.min.map<br>
+│   │       ├── moment<br>
+│   │       │   ├── min<br>
+│   │       │   │   ├── locales.min.js<br>
+│   │       │   │   ├── moment-with-locales.min.js<br>
+│   │       │   │   └── moment.min.js<br>
+│   │       │   ├── ender.js<br>
+│   │       │   ├── moment.js<br>
+│   │       │   └── package.js<br>
+│   │       ├── morris.js<br>
+│   │       │   ├── bower.travis.json<br>
+│   │       │   ├── morris.css<br>
+│   │       │   └── morris.min.js<br>
+│   │       ├── perfect-scrollbar<br>
+│   │       │   └── dist<br>
+│   │       │       ├── css<br>
+│   │       │       │   └── perfect-scrollbar.min.css<br>
+│   │       │       ├── js<br>
+│   │       │       │   ├── perfect-scrollbar.jquery.min.js<br>
+│   │       │       │   └── perfect-scrollbar.min.js<br>
+│   │       │       ├── perfect-scrollbar.common.js<br>
+│   │       │       ├── perfect-scrollbar.esm.js<br>
+│   │       │       ├── perfect-scrollbar.jquery.min.js<br>
+│   │       │       └── perfect-scrollbar.min.js<br>
+│   │       ├── popper.js<br>
+│   │       │   └── dist<br>
+│   │       │       ├── esm<br>
+│   │       │       │   ├── popper-utils.min.js<br>
+│   │       │       │   └── popper.min.js<br>
+│   │       │       ├── umd<br>
+│   │       │       │   ├── popper-utils.min.js<br>
+│   │       │       │   ├── popper.min.js<br>
+│   │       │       │   └── poppper.js.flow<br>
+│   │       │       ├── popper-utils.min.js<br>
+│   │       │       └── popper.min.js<br>
+│   │       └── raphael<br>
+│   │           ├── dev<br>
+│   │           │   ├── banner.txt<br>
+│   │           │   ├── raphael.amd.js<br>
+│   │           │   ├── raphael.core.js<br>
+│   │           │   ├── raphael.svg.js<br>
+│   │           │   ├── raphael.vml.js<br>
+│   │           │   └── raphaelTest.html<br>
+│   │           ├── license.txt<br>
+│   │           ├── raphael.min.js<br>
+│   │           └── raphael.no-deps.min.js<br>
+│   ├── dist<br>
+│   │   ├── css<br>
+│   │   │   ├── fonts<br>
+│   │   │   │   ├── Gilmer-Bold.eot<br>
+│   │   │   │   ├── Gilmer-Bold.otf<br>
+│   │   │   │   ├── Gilmer-Bold.svg<br>
+│   │   │   │   ├── Gilmer-Bold.ttf<br>
+│   │   │   │   ├── Gilmer-Bold.woff<br>
+│   │   │   │   ├── Gilmer-Heavy.eot<br>
+│   │   │   │   ├── Gilmer-Heavy.otf<br>
+│   │   │   │   ├── Gilmer-Heavy.svg<br>
+│   │   │   │   ├── Gilmer-Heavy.ttf<br>
+│   │   │   │   ├── Gilmer-Heavy.woff<br>
+│   │   │   │   ├── Gilmer-Medium.eot<br>
+│   │   │   │   ├── Gilmer-Medium.otf<br>
+│   │   │   │   ├── Gilmer-Medium.svg<br>
+│   │   │   │   ├── Gilmer-Medium.ttf<br>
+│   │   │   │   ├── Gilmer-Medium.woff<br>
+│   │   │   │   ├── Gilmer-Regular.eot<br>
+│   │   │   │   ├── Gilmer-Regular.otf<br>
+│   │   │   │   ├── Gilmer-Regular.svg<br>
+│   │   │   │   ├── Gilmer-Regular.ttf<br>
+│   │   │   │   ├── Gilmer-Regular.woff<br>
+│   │   │   │   ├── TofinoPersonal-Book.eot<br>
+│   │   │   │   ├── TofinoPersonal-Book.otf<br>
+│   │   │   │   ├── TofinoPersonal-Book.svg<br>
+│   │   │   │   ├── TofinoPersonal-Book.ttf<br>
+│   │   │   │   ├── TofinoPersonal-Book.woff<br>
+│   │   │   │   ├── TofinoPersonal-Medium.eot<br>
+│   │   │   │   ├── TofinoPersonal-Medium.otf<br>
+│   │   │   │   ├── TofinoPersonal-Medium.svg<br>
+│   │   │   │   ├── TofinoPersonal-Medium.ttf<br>
+│   │   │   │   ├── TofinoPersonal-Medium.woff<br>
+│   │   │   │   ├── TofinoPersonal-Regular.eot<br>
+│   │   │   │   ├── TofinoPersonal-Regular.otf<br>
+│   │   │   │   ├── TofinoPersonal-Regular.svg<br>
+│   │   │   │   ├── TofinoPersonal-Regular.ttf<br>
+│   │   │   │   └── TofinoPersonal-Regular.woff<br>
+│   │   │   ├── icons<br>
+│   │   │   │   ├── font-awesome<br>
+│   │   │   │   │   ├── css<br>
+│   │   │   │   │   │   ├── fa-brands.css<br>
+│   │   │   │   │   │   ├── fa-brands.min.css<br>
+│   │   │   │   │   │   ├── fa-regular.css<br>
+│   │   │   │   │   │   ├── fa-regular.min.css<br>
+│   │   │   │   │   │   ├── fa-solid.css<br>
+│   │   │   │   │   │   ├── fa-solid.min.css<br>
+│   │   │   │   │   │   ├── fontawesome-all.css<br>
+│   │   │   │   │   │   ├── fontawesome-all.min.css<br>
+│   │   │   │   │   │   ├── fontawesome.css<br>
+│   │   │   │   │   │   └── fontawesome.min.css<br>
+│   │   │   │   │   ├── less<br>
+│   │   │   │   │   │   ├── _animated.less<br>
+│   │   │   │   │   │   ├── _bordered-pulled.less<br>
+│   │   │   │   │   │   ├── _core.less<br>
+│   │   │   │   │   │   ├── _fixed-width.less<br>
+│   │   │   │   │   │   ├── _icons.less<br>
+│   │   │   │   │   │   ├── _larger.less<br>
+│   │   │   │   │   │   ├── _list.less<br>
+│   │   │   │   │   │   ├── _mixins.less<br>
+│   │   │   │   │   │   ├── _rotated-flipped.less<br>
+│   │   │   │   │   │   ├── _screen-reader.less<br>
+│   │   │   │   │   │   ├── _stacked.less<br>
+│   │   │   │   │   │   ├── _variables.less<br>
+│   │   │   │   │   │   ├── fa-brands.less<br>
+│   │   │   │   │   │   ├── fa-regular.less<br>
+│   │   │   │   │   │   ├── fa-solid.less<br>
+│   │   │   │   │   │   └── fontawesome.less<br>
+│   │   │   │   │   ├── scss<br>
+│   │   │   │   │   │   ├── _animated.scss<br>
+│   │   │   │   │   │   ├── _bordered-pulled.scss<br>
+│   │   │   │   │   │   ├── _core.scss<br>
+│   │   │   │   │   │   ├── _fixed-width.scss<br>
+│   │   │   │   │   │   ├── _icons.scss<br>
+│   │   │   │   │   │   ├── _larger.scss<br>
+│   │   │   │   │   │   ├── _list.scss<br>
+│   │   │   │   │   │   ├── _mixins.scss<br>
+│   │   │   │   │   │   ├── _rotated-flipped.scss<br>
+│   │   │   │   │   │   ├── _screen-reader.scss<br>
+│   │   │   │   │   │   ├── _stacked.scss<br>
+│   │   │   │   │   │   ├── _variables.scss<br>
+│   │   │   │   │   │   ├── fa-brands.scss<br>
+│   │   │   │   │   │   ├── fa-regular.scss<br>
+│   │   │   │   │   │   ├── fa-solid.scss<br>
+│   │   │   │   │   │   └── fontawesome.scss<br>
+│   │   │   │   │   └── webfonts<br>
+│   │   │   │   │       ├── fa-brands-400.eot<br>
+│   │   │   │   │       ├── fa-brands-400.svg<br>
+│   │   │   │   │       ├── fa-brands-400.ttf<br>
+│   │   │   │   │       ├── fa-brands-400.woff<br>
+│   │   │   │   │       ├── fa-brands-400.woff2<br>
+│   │   │   │   │       ├── fa-regular-400.eot<br>
+│   │   │   │   │       ├── fa-regular-400.svg<br>
+│   │   │   │   │       ├── fa-regular-400.ttf<br>
+│   │   │   │   │       ├── fa-regular-400.woff<br>
+│   │   │   │   │       ├── fa-regular-400.woff2<br>
+│   │   │   │   │       ├── fa-solid-900.eot<br>
+│   │   │   │   │       ├── fa-solid-900.svg<br>
+│   │   │   │   │       ├── fa-solid-900.ttf<br>
+│   │   │   │   │       ├── fa-solid-900.woff<br>
+│   │   │   │   │       └── fa-solid-900.woff2<br>
+│   │   │   │   ├── simple-line-icons<br>
+│   │   │   │   │   ├── css<br>
+│   │   │   │   │   │   └── simple-line-icons.css<br>
+│   │   │   │   │   ├── fonts<br>
+│   │   │   │   │   │   ├── Simple-Line-Icons.eot<br>
+│   │   │   │   │   │   ├── Simple-Line-Icons.svg<br>
+│   │   │   │   │   │   ├── Simple-Line-Icons.ttf<br>
+│   │   │   │   │   │   ├── Simple-Line-Icons.woff<br>
+│   │   │   │   │   │   └── Simple-Line-Icons.woff2<br>
+│   │   │   │   │   ├── less<br>
+│   │   │   │   │   │   └── simple-line-icons.less<br>
+│   │   │   │   │   └── scss<br>
+│   │   │   │   │       └── simple-line-icons.scss<br>
+│   │   │   │   └── themify-icons<br>
+│   │   │   │       ├── fonts<br>
+│   │   │   │       │   ├── themify.eot<br>
+│   │   │   │       │   ├── themify.svg<br>
+│   │   │   │       │   ├── themify.ttf<br>
+│   │   │   │       │   └── themify.woff<br>
+│   │   │   │       ├── ie7<br>
+│   │   │   │       │   ├── ie7.css<br>
+│   │   │   │       │   └── ie7.js<br>
+│   │   │   │       ├── themify-icons.css<br>
+│   │   │   │       └── themify-icons.less<br>
+│   │   │   ├── custom.css<br>
+│   │   │   ├── login.css<br>
+│   │   │   ├── login.min.css<br>
+│   │   │   ├── pandalocker.min.css<br>
+│   │   │   ├── single-inspection.css<br>
+│   │   │   ├── style.css<br>
+│   │   │   ├── style.min.css<br>
+│   │   │   └── table.css<br>
+│   │   ├── img<br>
+│   │   │   ├── button-loader-f2f2f2.gif<br>
+│   │   │   ├── lock-icon.png<br>
+│   │   │   └── social-icons.png<br>
+│   │   └── js<br>
+│   │       ├── pages<br>
+│   │       │   ├── calendar<br>
+│   │       │   │   ├── cal-init.js<br>
+│   │       │   │   └── cal-init.min.js<br>
+│   │       │   ├── chartist<br>
+│   │       │   │   ├── chartist-init.css<br>
+│   │       │   │   ├── chartist-init.js<br>
+│   │       │   │   ├── chartist-init.min.js<br>
+│   │       │   │   ├── chartist-plugin-tooltip.js<br>
+│   │       │   │   └── chartist-plugin-tooltip.min.js<br>
+│   │       │   ├── chartjs<br>
+│   │       │   │   ├── chartjs.init.js<br>
+│   │       │   │   └── chartjs.init.min.js<br>
+│   │       │   ├── dashboards<br>
+│   │       │   │   ├── dashboard1.js<br>
+│   │       │   │   └── dashboard1.min.js<br>
+│   │       │   ├── datatable<br>
+│   │       │   │   ├── data.json<br>
+│   │       │   │   ├── datatable-basic.init.js<br>
+│   │       │   │   ├── datatable-basic.init.min.js<br>
+│   │       │   │   ├── datatable-inspections.js<br>
+│   │       │   │   ├── datatable-inspectors.js<br>
+│   │       │   │   ├── datatable-qr.js<br>
+│   │       │   │   └── datatable-recommended-jobs.js<br>
+│   │       │   └── morris<br>
+│   │       │       ├── morris-data.js<br>
+│   │       │       └── morris-data.min.js<br>
+│   │       ├── app-style-switcher.js<br>
+│   │       ├── app-style-switcher.min.js<br>
+│   │       ├── custom.js<br>
+│   │       ├── custom.min.js<br>
+│   │       ├── feather.min.js<br>
+│   │       ├── jquery.ui.highlight.min.js<br>
+│   │       ├── pandalocker.js<br>
+│   │       ├── pandalocker.min.js<br>
+│   │       ├── sidebarmenu.js<br>
+│   │       └── sidebarmenu.min.js<br>
+│   └── uploads<br>
+│       ├── images<br>
+│       └── resume<br>
+├── routes<br>
+│   ├── api<br>
+│   │   └── v1<br>
+│   │       ├── applicant.js<br>
+│   │       ├── company.js<br>
+│   │       └── jobs.js<br>
+│   └── web<br>
+│       └── applicant.js<br>
+├── services<br>
+│   ├── parser<br>
+│   │   ├── dataparser.py<br>
+│   │   └── parser.py<br>
+│   ├── similarity<br>
+│   │   └── compute.py<br>
+│   ├── authUtils.js<br>
+│   ├── database.js<br>
+│   ├── email.js<br>
+│   ├── generateApiKey.js<br>
+│   ├── jobRecommendation.js<br>
+│   ├── middleware.js<br>
+│   ├── resumeParser.js<br>
+│   ├── router.js<br>
+│   └── sessionUtils.js<br>
+├── views<br>
+│   ├── layout<br>
+│   │   ├── footer.pug<br>
+│   │   ├── head.pug<br>
+│   │   ├── header.pug<br>
+│   │   ├── main.pug<br>
+│   │   ├── preloader.pug<br>
+│   │   ├── scripts.pug<br>
+│   │   └── sidebar.pug<br>
+│   ├── all-jobs.pug<br>
+│   ├── dashboard.pug<br>
+│   ├── index.pug<br>
+│   └── recommended-jobs.pug<br>
+├── .gitignore<br>
+├── README.md<br>
+├── app.js<br>
+├── generate_structure.py<br>
+├── package-lock.json<br>
+└── package.json<br>
 </details>
