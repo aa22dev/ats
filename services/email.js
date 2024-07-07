@@ -1,14 +1,15 @@
 const nodemailer = require('nodemailer');
+const config = require('../config/smtp.js');
 const SMTP = require('../models/smtp_configurations.js');
 
 const defaultSmtpConfig = {
-    host: '127.0.0.1', // dummy IP address, needs to be setup
-    port: 465,
+    host: config.host,
+    port: config.port,
     auth: {
-        user: 'dummy@aa22.dev', // dummy sender email, needs to be setup
-        pass: 'dummypassword' // dummy password, needs to be setup
+        user: config.auth.user,
+        pass: config.auth.pass
     },
-    secure: true,
+    secure: config.secure,
 };
 
 const getSmtpConfig = async (companyId) => {

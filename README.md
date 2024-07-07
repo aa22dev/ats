@@ -195,6 +195,36 @@ const accessLogger = morgan('combined', {
 
 ```
 
+### 4.5. SMTP Configuration
+**File:** `config/smtp.js`
+
+This file defines SMTP server configurations for email sending to work. 
+
+**Configuration:**
+
+```javascript
+{
+    host: '127.0.0.1', // dummy IP address, needs to be setup
+    port: 465,
+    auth: {
+        user: 'dummy@aa22.dev', // dummy sender email, needs to be setup
+        pass: 'dummypassword' // dummy password, needs to be setup
+    },
+    secure: true,
+};
+```
+
+### 4.6. GenAI Configuration
+**File:** `services/parser/dataparser.py`
+
+This file defines Goolge's GenAI API configurations and functions. 
+
+**Configuration:**
+
+```python
+GOOGLE_API_KEY = "dummy-key"
+```
+
 ## 5. Usage
 
 ### 5.1. Run App
