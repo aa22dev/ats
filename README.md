@@ -11,6 +11,8 @@
   - [4.2. Server Configuration](#42-server-configuration)
   - [4.3. Global Configuration](#43-global-configuration)
   - [4.4. Logger Configuration](#44-logger-configuration)
+  - [4.5. SMTP Configuration](#45-smtp-configuration)
+  - [4.6. GenAI Configuration](#46-genai-configuration)
 - [5. Usage](#5-usage)
   - [5.1. Run App](#51-run-app)
   - [5.2. APIs Endpoints](#52-apis-endpoints)
